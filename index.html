@@ -1,0 +1,935 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kong et al. (2026) 论文答疑手册</title><style>
+:root{--ink:#20343c;--teal:#176b70;--muted:#61767b;--line:#dbe6e4;--paper:#fff;--bg:#f4f7f6}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;color:var(--ink);background:var(--bg);font:17px/1.85 "Microsoft YaHei","PingFang SC",sans-serif}aside{position:fixed;width:295px;inset:0 auto 0 0;padding:25px 22px;background:#eaf1ef;border-right:1px solid var(--line);overflow:auto}aside .brand{font-weight:700;font-size:21px;color:var(--teal);margin-bottom:4px}aside .sub{font-size:13px;color:var(--muted);margin-bottom:19px}input{width:100%;padding:11px;border:1px solid #a7c3bf;border-radius:7px;font:inherit;font-size:15px;background:white}#status{font-size:12px;color:var(--muted);min-height:29px;margin:3px 0 11px}nav a{display:block;text-decoration:none;color:var(--ink);line-height:1.5;margin:3px 0;padding:6px 7px;border-radius:5px;font-size:13px}nav a:hover,nav a:focus{background:#d6e7e2}nav .depth-2{font-size:14px;font-weight:700;color:var(--teal);margin-top:12px}nav .depth-3{padding-left:15px}main{margin-left:295px;max-width:1140px;padding:42px 58px 90px}h1{font-size:31px;line-height:1.45;letter-spacing:-.4px;margin:0 0 24px;color:#123f47}h2{font-size:25px;color:var(--teal);line-height:1.5;margin:58px 0 23px;border-bottom:2px solid #9ebeb5;padding-bottom:12px}h3{font-size:21px;line-height:1.6;margin:0 0 19px}p{margin:12px 0}a{color:#166870;text-underline-offset:3px;overflow-wrap:anywhere}strong{color:#124e54}section.entry{padding:27px 30px;background:var(--paper);border:1px solid var(--line);border-radius:10px;margin:22px 0;box-shadow:0 3px 12px #143b3a04}blockquote{margin:18px 0;padding:12px 20px;background:#eaf3ef;border-left:4px solid var(--teal)}blockquote p{margin:7px 0}table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7;margin:18px 0;display:block;overflow-x:auto}th,td{padding:10px 13px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:#e7f0ed;color:#164c53}tr:nth-child(even) td{background:#fafcfb}pre{background:#f1f6f4;padding:16px;overflow:auto;border:1px solid var(--line);font:14px/1.7 Consolas,"Microsoft YaHei",monospace}li{margin:7px 0}button{font:inherit;font-size:13px;border:1px solid #9dbbb6;background:white;border-radius:5px;color:var(--teal);cursor:pointer;padding:5px 10px;margin:2px 5px 8px 0}.entry[hidden]{display:none}footer{font-size:13px;color:var(--muted);margin-top:50px}@media(max-width:950px){aside{position:relative;width:100%;max-height:330px}main{margin:0;padding:30px 20px}nav .depth-3{display:none}section.entry{padding:20px}h1{font-size:26px}}@media print{aside{display:none}main{margin:0;max-width:none;padding:0}body{font-size:11pt;background:white}h2{break-before:page}h3{break-after:avoid}section.entry{border:0;box-shadow:none;padding:0;margin:22px 0}table,blockquote{break-inside:avoid}a{color:inherit}pre{white-space:pre-wrap;font-size:9pt}footer{display:none}}
+.equation{padding:16px 20px;margin:18px 0;background:#f1f6f4;border:1px solid var(--line);border-radius:7px;font-family:"Cambria Math","Microsoft YaHei",sans-serif;font-size:18px;line-height:1.95;overflow-wrap:anywhere}details{margin:20px 0;padding:12px 16px;border:1px solid #b7cec7;border-radius:7px;background:#f8fbfa}summary{cursor:pointer;color:var(--teal);font-weight:700}.source{font-size:14px;color:var(--muted)}.update-note{padding:16px 20px;border-left:4px solid var(--teal);background:#eaf3ef}@media(max-width:600px){.equation{font-size:16px;padding:12px}section.entry{padding:17px}}figure.paper-figure{margin:22px 0;padding:12px;background:#fff;border:1px solid var(--line);border-radius:8px}.paper-figure img{display:block;max-width:100%;height:auto;margin:auto}.paper-figure figcaption{font-size:13px;color:var(--muted);line-height:1.6;margin-top:10px}@media print{.equation{font-size:11pt}details{break-inside:avoid}.paper-figure{break-inside:avoid}.paper-figure img{max-height:320px;object-fit:contain}}</style></head><body><aside><div class="brand">论文答疑手册</div><div class="sub">原理 / 读表 / 经济含义 / 汇报</div><label for="search">搜索问题与解释</label><input id="search" type="search" placeholder="例如：Cox公式、对数、百分点"><div id="status">输入关键词筛选；清空后显示全部。</div><button id="clear">显示全部</button><button id="print">打印 / 保存PDF</button><nav><a class="depth-2" href="#part-0">查阅导航</a><a class="depth-2" href="#part-1">第一部分：先找回论文主线</a><a class="depth-3" href="#part-2">Q1．这篇论文究竟在研究什么？开头怎样用几句话讲清楚？</a><a class="depth-3" href="#part-3">Q2．为什么理论上既可能促进创新，也可能抑制创新？</a><a class="depth-3" href="#part-4">Q3．为什么选择新三板企业？这与外推边界有什么关系？</a><a class="depth-3" href="#part-5">Q4．整篇论文的各类检验分别回答什么问题？</a><a class="depth-2" href="#part-6">第二部分：把 Cox 模型真正讲明白</a><a class="depth-3" href="#part-7">Q5．Cox 模型的完整名称是什么？Cox 是缩写吗？</a><a class="depth-3" href="#part-8">Q6．它研究什么？这里的“风险”为什么不是坏事？</a><a class="depth-3" href="#part-9">Q7．为什么不直接把城市分成“设立了”和“没设立”？</a><a class="depth-3" href="#part-10">Q8．什么是右删失？一直没设立的城市为什么还有用？</a><a class="depth-3" href="#part-11">Q9．什么是风险集？为什么甲设立后要退出比较？</a><a class="depth-3" href="#part-12">Q10．风险率到底是什么？它是概率吗？</a><a class="depth-3" href="#part-13">Q11．h(t | X)＝h₀(t) × exp(βX) 是什么公式？每个符号怎样理解？</a><a class="depth-3" href="#part-14">Q12．“比例风险”中的“比例”究竟是什么？</a><a class="depth-3" href="#part-15">Q13．模型怎么估计？“2∶2∶1”为什么变成“2/5、2/5、1/5”？</a><a class="depth-3" href="#part-16">Q14．为什么不用先估计基准风险率？“部分”是不是只用了部分城市？</a><a class="depth-2" href="#part-17">第三部分：回到论文 Table 2，识别检验到底说明了什么</a><a class="depth-3" href="#part-18">Q15．作者为什么要检验城市设庭时点？</a><a class="depth-3" href="#part-19">Q16．Table 2 具体用了哪些变量？Δ、L. 和 p.c. 是什么意思？</a><a class="depth-3" href="#part-20">Q17．全部不显著意味着什么？能否说设庭是随机的？</a><a class="depth-3" href="#cox-coefficients">Q17补充．Table 2 每行的数都是 β 吗？括号是什么？用 t 检验还是 z 检验？</a><a class="depth-3" href="#part-21">Q18．它与平行趋势、安慰剂检验是什么关系？原文模型表述还有什么要保留？</a><a class="depth-2" href="#part-22">第四部分：主效应、交互项与“分流—汇合”表达</a><a class="depth-3" href="#part-23">Q19．讨论 Table 6 时，到底在比较哪两组、哪两个结果变量？</a><a class="depth-3" href="#part-24">Q20．主效应和交互项分别回答什么？为什么要相加？</a><a class="depth-3" href="#part-25">Q21．为什么“交互项显著为负”不等于“寻补贴企业绝对下降”？</a><a class="depth-3" href="#part-26">Q22．能不能把两个系数的显著性直接加起来？为什么有的列没报告Tribunal主效应？</a><a class="depth-3" href="#part-27">Q23．Table 6中的系数单位怎么读？怎样概括得简短又准确？</a><a class="depth-3" href="#part-28">Q24．怎样把长句变成“先分流，再汇合”的图？</a><a class="depth-2" href="#part-29">第五部分：机制与代理变量，讲到什么程度才准确</a><a class="depth-3" href="#part-30">Q25．“债权人激励效应”和“信贷再配置效应”为什么要分开？</a><a class="depth-3" href="#part-31">Q26．为什么研发强度恰好超过门槛，可以作为“寻补贴企业”的代理？</a><a class="depth-3" href="#part-32">Q27．续费专利为什么被称为“价值驱动”？可以直接证明专利很有价值吗？</a><a class="depth-3" href="#part-33">Q28．为什么机制证据要说“支持解释”，不能总说“证明了机制”？</a><a class="depth-3" href="#part-34">Q29．银行竞争异质性，是不是说改革提高了银行竞争？</a><a class="depth-2" href="#part-35">第六部分：怎样让学术汇报更连贯、更容易记住</a><a class="depth-3" href="#part-36">Q30．“用句子串起来”是不是每页都要写成长段落？</a><a class="depth-3" href="#part-37">Q31．为什么应保留原来逻辑较好的箭头图和分支结构？</a><a class="depth-3" href="#part-38">Q32．代理变量提示、原文截图和小字注释应放在哪里？</a><a class="depth-3" href="#part-39">Q33．底部进度条和重点强调，应保留什么规则？</a><a class="depth-2" href="#economic-meaning">第七部分：回归系数的经济含义——百分比、百分点与对数</a><a class="depth-3" href="#grant-percentage-points">Q34．为什么表7的0.026要说“授权率提高2.6个百分点”，不能说“提高2.6%”？</a><a class="depth-3" href="#log-relative-change">Q35．数量取自然对数后，为什么系数反映“相对变化”？用表7的0.076一步步推导</a><a class="depth-3" href="#log-one-plus">Q36．本文基准回归用 ln(1＋专利数)，系数0.109为什么被说成“约增加11%”？与 ln(N) 有何不同？</a><a class="depth-3" href="#coefficient-unit-guide">Q37．读系数时怎样先判断单位？表6中为什么可以用0.555除以8.9，百分号去哪了？</a><a class="depth-2" href="#literature-comparison">第八部分：与引用文献比较，怎样评价本文</a><a class="depth-3" href="#q38-literature">Q38．能否查阅本文引用的文献，再比较它的贡献，而不是泛泛列“优点与不足”？</a><a class="depth-3" href="#q39-evaluation">Q39．比较文献以后，组会中可以怎样讲本文的优点、不足和毕业论文启发？</a><a class="depth-2" href="#identification-and-robustness">第九部分：识别担忧、替代解释与安慰剂检验</a><a class="depth-3" href="#q40-nonrandom">Q40．“设庭并非随机分配”为什么是一个识别担忧？是不是说明DID无效？</a><a class="depth-3" href="#q41-bank-placement">Q41．为什么原文把银行业结构放在稳健性部分，而PPT把它归入异质性检验？</a><a class="depth-3" href="#q42-footnote11">Q42．脚注11具体说了什么？为何要检验破产法庭改革是否影响专利诉讼？</a><a class="depth-3" href="#q43-58cities">Q43．随机安慰剂检验为什么每轮选58个“虚假处理城市”？58从哪里来？</a><a class="depth-3" href="#q44-placebo-specification">Q44．“按表3第（1）列相同设定，重复估计1000次”究竟保持什么、随机改变什么？</a><a class="depth-2" href="#ddd-event-study">第十部分：从三重差分到动态事件研究</a><a class="depth-3" href="#q45-ddd">Q45．僵尸企业机制里的三重差分，究竟比普通DID多比较了什么？</a><a class="depth-3" href="#q46-dynamic-ddd">Q46．作者怎样基于三重差分做图3的事件研究？图上的每个点到底是什么？</a><a class="depth-2" href="#using-on-other-devices">第十一部分：怎样在其他设备查看这份手册</a><a class="depth-3" href="#q47-portability">Q47．这个答疑网站只能在我的电脑看吗？手机、平板和其他电脑怎样打开？</a><a class="depth-2" href="#part-40">可直接练习的三段复述稿</a><a class="depth-3" href="#part-41">复述稿A：用一分钟解释Cox模型</a><a class="depth-3" href="#part-42">复述稿B：用半分钟解释负交互项</a><a class="depth-3" href="#part-43">复述稿C：用半分钟区分两条机制</a><a class="depth-2" href="#part-44">闭卷自测：先回答，再看参考要点</a><a class="depth-3" href="#part-45">问题</a><a class="depth-3" href="#part-46">参考要点</a><a class="depth-2" href="#part-47">原文与核对入口</a></nav></aside><main><h1>《Court enforcement and corporate innovation》论文答疑手册</h1>
+<p><strong>用途：忘记解释时查阅；组会前复习；练习把原理讲给别人听。</strong><br>整理日期：2026年10月20日；增补更新：2026年10月22日</p>
+<p>本手册按问题之间的逻辑关系归类，补全了提问背景，不是聊天逐字稿。内容来自本窗口可见的讨论、你粘贴的 Cox 模型讲解及论文原文核对；部分问题是为接通解释而补充的，并不表示你曾逐字问过。分享链接本次未能读取，其中未粘贴的内容未计入整理范围。</p>
+<p><strong>标记说明：</strong>“论文内容”指原文已有设计或证据；“理解补充”指帮助读懂模型的解释；“教学例子”中的城市和数字不来自论文；“汇报建议”指表达方式，不是论文新增结论。页码均指论文 PDF 页码，不是 PPT 页码。</p>
+<p class="update-note"><strong>本次增补：</strong>将“这个公式是什么”补全为 Cox 公式的符号、直觉与风险比推导；将“系数为何是相对变化”和“2.6%／2.6个百分点”合并为第七部分。保留原有问答编号，新增 Q34—Q37，并在 Q17 后补充读表与检验。<a href="#part-13">看 Cox 公式</a> · <a href="#economic-meaning">看经济含义专题</a></p><p class="update-note"><strong>10月22日增补：</strong>新增Q38—Q47，将文献比较、设庭非随机、银行业结构分类、脚注11、58个城市、1000次安慰剂设定、三重差分与事件研究，以及跨设备查看归在一起。<a href="#literature-comparison">文献评价</a> · <a href="#identification-and-robustness">识别与安慰剂</a> · <a href="#ddd-event-study">动态三重差分</a> · <a href="#using-on-other-devices">跨设备查看</a></p>
+<p class="source">本轮来源说明：用户提供的<a href="https://chatgpt.com/share/6ad8df51-0428-83ee-9a6c-1a7c4f76a004">新分享对话</a>未能成功读取。以下按用户列出的七个问题，结合本地论文、图表与可访问的引用文献重新核对整理，并非对该分享对话的完整转录。可确认的原文内容、教学例子和本手册评价分别标明。</p><h2 id="part-0">查阅导航</h2>
+<table>
+<thead>
+<tr>
+<th>你现在卡在哪里</th>
+<th>建议先看</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>忘了整篇论文在研究什么、为什么要讲这些检验</td>
+<td>第一部分：Q1—Q4</td>
+</tr>
+<tr>
+<td>Cox 全称是什么？为什么用它？</td>
+<td>第二部分：Q5—Q7</td>
+</tr>
+<tr>
+<td>风险集、右删失、风险率分不清</td>
+<td>第二部分：Q8—Q10</td>
+</tr>
+<tr>
+<td>看得懂公式，却不知道模型在比较什么</td>
+<td>第二部分：Q11—Q14</td>
+</tr>
+<tr>
+<td>不会解释论文 Table 2 或“不显著”</td>
+<td>第三部分：Q15—Q18</td>
+</tr>
+<tr>
+<td>主效应、负交互项和相对下降分不清</td>
+<td>第四部分：Q19—Q23</td>
+</tr>
+<tr>
+<td>如何把回归结论画成分流再汇合的图</td>
+<td>第四部分：Q24</td>
+</tr>
+<tr>
+<td>两条机制、代理变量和异质性容易讲过头</td>
+<td>第五部分：Q25—Q29</td>
+</tr>
+<tr>
+<td>PPT 怎样讲得连贯，又保留简洁</td>
+<td>第六部分：Q30—Q33</td>
+</tr>
+<tr>
+<td>想检查自己能不能向别人讲明白</td>
+<td>最后的复述稿与自测</td>
+</tr>
+<tr><td>0.026为什么是2.6个百分点？对数系数为什么是相对变化？</td><td><a href="#economic-meaning">第七部分：Q34—Q37</a></td></tr><tr><td>Cox系数、风险比、标准误与z检验怎样对应？</td><td><a href="#cox-coefficients">Q17补充</a></td></tr><tr><td>与引用文献相比，本文贡献和不足在哪里？</td><td><a href="#literature-comparison">Q38—Q39</a></td></tr>
+<tr><td>设庭不随机、银行结构归类、脚注11怎样理解？</td><td><a href="#q40-nonrandom">Q40—Q42</a></td></tr>
+<tr><td>安慰剂为什么是58城？1000次到底怎么估计？</td><td><a href="#q43-58cities">Q43—Q44</a></td></tr>
+<tr><td>三重差分如何变成图3？与图4有什么不同？</td><td><a href="#ddd-event-study">Q45—Q46</a></td></tr>
+<tr><td>怎样在手机、平板或其他电脑查看？</td><td><a href="#using-on-other-devices">Q47</a></td></tr></tbody></table>
+<h2 id="part-1">第一部分：先找回论文主线</h2>
+<section class="entry"><h3 id="part-2">Q1．这篇论文究竟在研究什么？开头怎样用几句话讲清楚？</h3>
+<p><strong>背景：</strong>原先“研究问题与汇报路线”页罗列了模块，但没有先告诉听众研究对象、问题和证据路线。</p>
+<p><strong>论文内容：</strong>作者研究中国破产专门法庭的设立是否促进企业创新，以及信贷供给渠道如何发挥作用。不同城市在不同年份设庭，为作者提供了比较改革前后企业表现的机会。研究以新三板企业为主要样本。</p>
+<p><strong>可以这样开场：</strong></p>
+<blockquote>
+<p>这篇论文研究：破产司法执行改善，是否会促进企业创新？作者利用不同城市破产专门法庭先后设立的改革，考察新三板企业的创新变化。汇报先解释改革为什么可能影响创新，再说明数据和识别设计，随后展示创新结果及信贷渠道证据，最后交代结论的适用范围。</p>
+</blockquote>
+<p>这段话依次回答了“研究什么—怎样研究—接下来怎样讲”。</p>
+</section><section class="entry"><h3 id="part-3">Q2．为什么理论上既可能促进创新，也可能抑制创新？</h3>
+<p><strong>论文内容：</strong>强化债权人保护和破产执行有不同方向的作用。企业可能因清算威胁而减少高风险创新；债权人也可能因回收更有保障而愿意提供更多资金，支持创新。</p>
+<p>作者强调中国企业较依赖债务融资的制度背景，用以解释本文发现为什么可能与强调过度清算效应的研究不同。准确表述是：<strong>本文所考察情境下，证据支持信贷供给渠道占据重要地位</strong>，而不是“强化债权人保护在所有国家都促进创新”。</p>
+<p><strong>一句话记忆：</strong>同一改革，一边改变企业承担风险的顾虑，一边改变债权人供给资金的意愿；净效果需要实证回答。</p>
+<p>来源：论文引言及第6节机制分析。</p>
+</section><section class="entry"><h3 id="part-4">Q3．为什么选择新三板企业？这与外推边界有什么关系？</h3>
+<p><strong>论文内容：</strong>新三板较多覆盖创新型、成长型中小企业；相较传统交易所上市公司，它们规模较小、发展阶段较早、资源约束较强，对金融和监管环境变化更敏感。因此，这类样本有助于观察破产改革与融资、创新之间的关系。</p>
+<p><strong>理解补充：</strong>也正因为样本有这些特点，不能未经验证就把结果直接套用到所有大企业、成熟上市公司或其他国家。</p>
+<p><strong>复述：</strong>“这个样本有利于观察融资渠道，但样本的优势也同时限定了结论的适用范围。”</p>
+<p>来源：论文第3.2节，PDF第4页；样本对比见附录 Table C.1。</p>
+</section><section class="entry"><h3 id="part-5">Q4．整篇论文的各类检验分别回答什么问题？</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>它负责回答的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>理论与制度背景</td>
+<td>为什么破产执行可能影响创新？</td>
+</tr>
+<tr>
+<td>设庭时点检验（Cox）</td>
+<td>是不是原本就有某些经济变化的城市更早改革？</td>
+</tr>
+<tr>
+<td>DID与事件研究</td>
+<td>改革后创新怎样变化？改革前是否已有不同趋势？</td>
+</tr>
+<tr>
+<td>稳健性与替代解释</td>
+<td>换设定、控制相关政策后，结果是否仍得到支持？</td>
+</tr>
+<tr>
+<td>信贷与机制证据</td>
+<td>观察到的创新变化是否与融资改善及资源再配置一致？</td>
+</tr>
+<tr>
+<td>异质性与外推边界</td>
+<td>哪种既有环境下效果更强？结果适用于什么样本？</td>
+</tr>
+</tbody></table>
+<p><strong>记忆线：</strong>先说明“为什么可能有效”，再说明“为什么能这样识别”，然后回答“效果是什么、可能怎样发生、能讲到哪里”。</p>
+</section><h2 id="part-6">第二部分：把 Cox 模型真正讲明白</h2>
+<section class="entry"><h3 id="part-7">Q5．Cox 模型的完整名称是什么？Cox 是缩写吗？</h3>
+<p>全称是 <strong>Cox proportional hazards regression model</strong>，中文为 <strong>Cox比例风险回归模型</strong>，常简称“Cox比例风险模型”。Cox 是统计学家 D. R. Cox 的姓，不是几个英文单词的缩写。经典来源是他1972年的论文 <em>Regression Models and Life-Tables</em>。<a href="https://rss.onlinelibrary.wiley.com/doi/10.1111/j.2517-6161.1972.tb00899.x">Cox原始论文</a></p>
+</section><section class="entry"><h3 id="part-8">Q6．它研究什么？这里的“风险”为什么不是坏事？</h3>
+<p><strong>理解补充：</strong>它研究事件发生的时间，以及哪些特征与事件的发生强度有关。</p>
+<p>在本文语境中，可以把问题说成：</p>
+<blockquote>
+<p>对一个还没有设立破产法庭的城市，哪些特征与它接下来更容易设立法庭有关？</p>
+</blockquote>
+<p>“事件”也可以是找到工作、企业违约或机器故障。“风险”是统计学术语，不包含好坏判断。</p>
+<p><strong>容易混淆：</strong>Table 2 的事件是“城市设庭”，不是“企业创新”。它研究改革如何到来，不直接估计改革带来多少创新。</p>
+</section><section class="entry"><h3 id="part-9">Q7．为什么不直接把城市分成“设立了”和“没设立”？</h3>
+<p><strong>教学例子：</strong>共同从观察期起点跟踪三座城市，到2020年结束。</p>
+<table>
+<thead>
+<tr>
+<th>城市</th>
+<th>观察结果</th>
+<th>只记最终是否设立会留下什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>甲</td>
+<td>2015年设立</td>
+<td>1</td>
+</tr>
+<tr>
+<td>乙</td>
+<td>2017年设立</td>
+<td>1</td>
+</tr>
+<tr>
+<td>丙</td>
+<td>截至2020年未设立</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>只看0/1，甲、乙完全一样，但甲比乙早两年设立。丙的0也不能解释成“永远不会设立”。</p>
+<p>事件时间分析可以利用<strong>什么时候发生、是否发生，以及截至观察结束仍未发生</strong>的信息。具体实现可以处理删失和时变变量，见 <a href="https://www.stat.ethz.ch/R-manual/R-devel/library/survival/html/coxph.html">R survival 官方文档</a>。</p>
+</section><section class="entry"><h3 id="part-10">Q8．什么是右删失？一直没设立的城市为什么还有用？</h3>
+<p>丙到2020年未设立，意味着我们知道它的等待时间超过了观察窗口，却不知道最终还要等多久。这叫<strong>右删失</strong>。</p>
+<p>它仍然有用：甲在2015年设立时，丙还在等待；乙在2017年设立时，丙也还在等待。丙的特征参与了这些时点的比较。我们知道它在这些时点没有成为事件发生者。</p>
+<p><strong>不要说：</strong>“没设立就没有数据，可以删掉。”<br><strong>应该说：</strong>“它在退出观察前提供了未发生事件的信息。”</p>
+<p>补充边界：标准推断通常要求删失在给定模型信息后不再携带未被处理的事件风险信息；并非任何失访都可以不加处理地视为普通删失。这里的例子仅用于说明观察期结束。</p>
+</section><section class="entry"><h3 id="part-11">Q9．什么是风险集？为什么甲设立后要退出比较？</h3>
+<p><strong>风险集＝某个事件发生前，仍在观察中、尚未发生该事件的对象集合。</strong></p>
+<p>在“首次设庭”的例子中：</p>
+<table>
+<thead>
+<tr>
+<th>比较时点</th>
+<th>风险集</th>
+<th>实际发生事件者</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2015年甲设立前</td>
+<td>甲、乙、丙</td>
+<td>甲</td>
+</tr>
+<tr>
+<td>2017年乙设立前</td>
+<td>乙、丙</td>
+<td>乙</td>
+</tr>
+<tr>
+<td>2020年观察结束</td>
+<td>丙仍未发生事件，随后结束观察</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p>甲已设立后，不再有资格成为“下一座首次设立法庭的城市”，所以退出后续风险集。它此前的记录仍然用于估计，不是整座城市的数据都被抹掉。</p>
+<p><strong>最关键的直觉：</strong>每出现一个事件，就在当时仍有资格发生该事件的对象之间比较。</p>
+</section><section class="entry"><h3 id="part-12">Q10．风险率到底是什么？它是概率吗？</h3>
+<p>风险率回答：<strong>此前还没发生事件，在当前这一刻，事件发生的强度有多大？</strong></p>
+<p>它是一个速率，不是“最终会发生的概率”，也不直接等于“今年发生的概率”。对足够短的时间段，可近似理解为：</p>
+<blockquote>
+<p>接下来短时间内发生的条件概率 ≈ 当前风险率 × 时间长度。</p>
+</blockquote>
+<p>“条件”指已经等到现在，事件仍未发生。时间长度越短，这种局部近似越合适。</p>
+<p><strong>教学例子：</strong>若当前风险率约为每年0.2，那么接下来0.01年的条件发生概率约为0.2×0.01＝0.002。不能据此直接说全年概率就是20%。</p>
+</section><section class="entry"><h3 id="part-13">Q11．h(t | X)＝h₀(t) × exp(βX) 是什么公式？每个符号怎样理解？</h3>
+<p><strong>提问背景：</strong>附录用这个公式解释 Cox 模型。这里研究的“事件”是城市首次设立破产专门法庭，不是企业破产或违约。以下是<strong>标准 Cox 比例风险模型的教学写法</strong>，并非声称论文逐字公布了同一估计方程；原文的模型表述边界见<a href="#part-21">Q18</a>。</p>
+<div class="equation">h(t | X)＝h₀(t) × e<sup>βX</sup>＝h₀(t) × exp(βX)</div>
+<blockquote><p>一句话：在一个城市到现在还没有设庭的前提下，它此刻设庭的强度，等于“共同的基准节奏”乘以“城市特征带来的倍数”。</p></blockquote>
+<table><thead><tr><th>符号</th><th>含义</th><th>怎样代入本文理解</th></tr></thead><tbody>
+<tr><td>t</td><td>模型采用的时间尺度</td><td>观察城市在何时首次设庭；这里不擅自指定作者未说明的起算方式。</td></tr>
+<tr><td>h(t | X)</td><td>给定特征 X 的条件风险率；竖线 | 读作“给定”</td><td>在此前尚未设庭的条件下，此刻首次设庭的瞬时发生强度；不是“截至此时已设庭的比例”。</td></tr>
+<tr><td>h₀(t)</td><td>基准风险率</td><td>在模型的 X＝0 这一基准下，事件随时间发生的节奏；它可以随 t 改变，不必是常数。</td></tr>
+<tr><td>X</td><td>解释变量</td><td>可理解为城市特征；Table 2 实际考察城市指标的变化及其滞后项，而非任意一个水平指标。</td></tr>
+<tr><td>β</td><td>待估计的系数</td><td>决定 X 增加一个单位时，风险率按什么方向、什么倍数变化。</td></tr>
+<tr><td>exp(βX)</td><td>e 的 βX 次方，始终为正</td><td>把城市特征转换成相对基准的风险率倍数；β 可以为负，但风险率不会因此为负。</td></tr>
+</tbody></table>
+<p><strong>先把公式算一遍（教学例子，非论文数据）：</strong>假设只有一个二元特征 X，且 β＝ln(2)≈0.693。X＝0 的城市风险率为 h₀(t)×e⁰＝h₀(t)；X＝1 的城市为 h₀(t)×e⁰·⁶⁹³≈2h₀(t)。所以后者此刻设庭的强度约是前者的两倍。</p>
+<p><strong>不要多推一步：</strong>这不等于“今年设庭概率翻倍”，也不等于“等待时间恰好减半”。风险率不是一整年的概率；很短时间内的事件概率才可近似为 h(t | X)×时间间隔，详见<a href="#part-12">Q10</a>。</p>
+<p><strong>多个解释变量怎么办？</strong>把 βX 换成 β₁X₁＋β₂X₂＋…，简写为 β′X。若特征随时间变化，可写成 h<sub>c</sub>(t)＝h₀(t)exp[β′X<sub>c</sub>(t)]；c 表示城市。每个 β 对应一个解释变量，解释时要保持其他变量不变。</p>
+<p><strong>为什么 β 能变成风险比？</strong>比较同一时刻、其他条件相同、X 恰好相差1的两个城市：</p>
+<div class="equation">h(t | X＋1) / h(t | X)<br>＝[h₀(t)e<sup>β(X＋1)</sup>] / [h₀(t)e<sup>βX</sup>]<br>＝e<sup>β(X＋1)−βX</sup>＝e<sup>β</sup></div>
+<p>相同的 h₀(t) 抵消了，因此 β 是<strong>风险比的自然对数</strong>，e<sup>β</sup> 才是风险比。这里的“比”与后文对数回归的“数量比”形式相似，但比较的对象不同，不能互换。</p>
+<details><summary>闭卷自测：β＝0 时，是“不会设庭”，还是“X 不改变设庭强度”？</summary><p>是后者。e⁰＝1，风险率仍为 h₀(t)，未必为零。若你把它解释为不发生事件，回看“基准节奏×倍数”这一步。</p></details>
+<p class="source">来源：标准 Cox 模型解释；论文 Table 2（PDF第6页）用于连接本文情境。模型推导可参见文末 Cox 原文及斯坦福讲义。</p>
+</section><section class="entry"><h3 id="part-14">Q12．“比例风险”中的“比例”究竟是什么？</h3>
+<p>在其他条件相同、某个特征相差一个单位时，标准模型给出的风险率之比为：</p>
+<p><strong>HR＝exp(β)</strong>，其中HR称为风险比（hazard ratio）。</p>
+<table>
+<thead>
+<tr>
+<th>系数/风险比</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>β＞0，HR＞1</td>
+<td>特征较高者的当前发生强度更大</td>
+</tr>
+<tr>
+<td>β＜0，HR＜1</td>
+<td>特征较高者的当前发生强度更小</td>
+</tr>
+<tr>
+<td>β＝0，HR＝1</td>
+<td>该特征在模型中不改变风险率</td>
+</tr>
+</tbody></table>
+<p>例如β＝ln(2)，HR＝2，意思是风险率为2倍。<strong>不是全年概率为2倍，也不是等待时间缩短一半。</strong></p>
+<p>当比较双方的特征差异固定、系数不随时间改变时，这个风险比保持不变，这就是比例风险的核心含义。</p>
+<p>补充一个容易漏掉的条件：本文涉及时变城市特征。如果两座城市的特征差异随时间改变，两座城市实际风险率的比值也可改变。因此不能把“比例风险”背成“任何两座城市的风险比永远不变”。</p>
+</section><section class="entry"><h3 id="part-15">Q13．模型怎么估计？“2∶2∶1”为什么变成“2/5、2/5、1/5”？</h3>
+<p><strong>教学例子：</strong>某时点甲、乙、丙仍在风险集中。假定某组系数使它们的相对发生强度为2、2、1。</p>
+<p>在无并列事件的标准讲解中，条件于此刻发生了一个事件，模型为事件发生者分配的相对权重是：</p>
+<table>
+<thead>
+<tr>
+<th>城市</th>
+<th>相对强度</th>
+<th>条件于此刻发生一个事件，其发生者为该城市的概率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>甲</td>
+<td>2</td>
+<td>2÷(2＋2＋1)＝2/5</td>
+</tr>
+<tr>
+<td>乙</td>
+<td>2</td>
+<td>2/5</td>
+</tr>
+<tr>
+<td>丙</td>
+<td>1</td>
+<td>1/5</td>
+</tr>
+</tbody></table>
+<p>若实际是甲设立，这一时点对该组系数的支持由2/5这一项体现。随后乙设立时，要用当时的新风险集再算一次。</p>
+<p><strong>估计过程：</strong>尝试不同系数→得到每次事件的条件概率→把这些项相乘（计算时通常加总对数）→寻找最能解释观测事件发生者的系数。这就是部分似然的直观理解。</p>
+<p>“甲为2/5”不是甲全年设立概率为40%。它是已知这个时点发生事件后，对“发生者是谁”的条件概率。</p>
+<p>模型利用的是事件时点、风险集和当时的特征，不是只把最后的发生顺序排一下名。</p>
+</section><section class="entry"><h3 id="part-16">Q14．为什么不用先估计基准风险率？“部分”是不是只用了部分城市？</h3>
+<p>同一时点，风险集内城市具有共同的基准风险率。在“某城市的风险率÷整个风险集的风险率之和”中，共同项可以约掉：</p>
+<blockquote>
+<p>h₀(t)exp(β′X_甲) ÷ Σⱼ[h₀(t)exp(β′X_j)]<br>＝exp(β′X_甲) ÷ Σⱼexp(β′X_j)，其中j属于该时点风险集。</p>
+</blockquote>
+<p>因此，估计β时不必先规定h₀(t)的具体形状。这里的“部分似然”不意味着只使用部分城市；未发生事件的对象也能通过风险集分母参与估计。</p>
+<p><strong>复述：</strong>“同一时点比较，相同的基准节奏抵消了，留下城市特征造成的相对差别。”</p>
+</section><h2 id="part-17">第三部分：回到论文 Table 2，识别检验到底说明了什么</h2>
+<section class="entry"><h3 id="part-18">Q15．作者为什么要检验城市设庭时点？</h3>
+<p><strong>论文内容：</strong>作者担心设庭时点受城市层面的其他因素影响。例如，若原本创新增长更快的城市也更早设庭，那么后来观察到的创新增长可能混入这些原有因素的作用。</p>
+<p>因此先问：<strong>城市经济、创新指标的变化，能否预测设庭事件？</strong></p>
+<p>直觉是把两件容易混在一起的事拆开：一件是“改革选择了哪些城市、何时到来”，另一件是“改革之后企业发生了什么”。Cox检验主要针对前一件事。</p>
+<p>来源：论文第4节、Table 2，PDF第6页。</p>
+</section><section class="entry"><h3 id="part-19">Q16．Table 2 具体用了哪些变量？Δ、L. 和 p.c. 是什么意思？</h3>
+<p>原文使用以下城市指标的年度变化，并考虑当期及滞后一期形式：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>应怎样理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Δ log(Patents p.c.)</td>
+<td>人均专利数对数的一年差分</td>
+</tr>
+<tr>
+<td>Δ Fiscal Balance p.c.</td>
+<td>人均财政预算余额的一年差分</td>
+</tr>
+<tr>
+<td>Δ (Loan Balance/GRP)</td>
+<td>贷款余额与地区生产总值之比的一年差分</td>
+</tr>
+<tr>
+<td>Δ log(GRP p.c.)</td>
+<td>人均地区生产总值对数的一年差分</td>
+</tr>
+<tr>
+<td>Δ log(population)</td>
+<td>人口对数的一年差分</td>
+</tr>
+</tbody></table>
+<p><strong>Δ</strong>表示差分；<strong>L.</strong>表示滞后一期；<strong>p.c.</strong>表示人均；<strong>GRP</strong>是地区生产总值。</p>
+<p>重要区别：这里检验的是这些指标的<strong>变化</strong>，不能概括成“作者已经证明城市经济水平与设庭完全无关”。对数差分可近似表示增长率；财政余额等未取对数变量的差分则不是增长率。</p>
+<p>来源：Table 2表注及其后的正文，PDF第6页。</p>
+</section><section class="entry"><h3 id="part-20">Q17．全部不显著意味着什么？能否说设庭是随机的？</h3>
+<p><strong>论文结果：</strong>作者未发现所考察城市指标的变化对设庭具有统计显著的预测关系，并据此认为，这在一定程度上缓解了城市层面混淆因素的担忧。</p>
+<p><strong>正确理解：</strong>这项检验没有找到充分的预测证据。</p>
+<p><strong>不能推出：</strong>所有影响设庭的因素都被排除；系数真实值必然为零；设庭完全随机；DID所有识别条件自动成立。</p>
+<p>统计不显著也可能与估计不够精确有关。它不是“证明没有关系”的同义词。</p>
+<p><strong>汇报用语：</strong></p>
+<blockquote>
+<p>Table 2没有发现这些可观测城市特征的年度变化能够显著预测设庭，因而在一定程度上缓解了改革时点选择的担忧，但不足以证明设庭完全随机。</p>
+</blockquote>
+<p>进一步解释“非随机不等于DID无效”，见<a href="#q40-nonrandom">Q40</a>。</p></section><section class="entry"><h3 id="cox-coefficients">Q17补充．Table 2 每行的数都是 β 吗？括号是什么？用 t 检验还是 z 检验？</h3>
+<p><strong>先区分“模型能输出什么”和“这张表报告了什么”。</strong>Cox 软件可能报告系数 β，也可能报告风险比 e<sup>β</sup>。论文 Table 2 的解释变量对应的主行数值是系数估计，括号内是标准误；它不是一张风险比表。表中有负数，也说明这些数不可能是始终大于零的 e<sup>β</sup>。样本量等统计项当然不是 β。</p>
+<table><thead><tr><th>读到的对象</th><th>回答的问题</th><th>“没有关系”对应什么</th></tr></thead><tbody>
+<tr><td>系数 β̂</td><td>方向和对数风险比是多少？</td><td>β＝0</td></tr>
+<tr><td>风险比 exp(β̂)</td><td>X 多一个单位，风险率是原来的几倍？</td><td>风险比＝1</td></tr>
+<tr><td>标准误 SE(β̂)</td><td>系数估计有多不精确？</td><td>不是拿标准误与0直接比较</td></tr>
+<tr><td>p 值与星号</td><td>样本证据足不足以拒绝 β＝0？</td><td>不显著不等于证明 β 必为0</td></tr>
+</tbody></table>
+<p><strong>标准 Cox 模型常用 Wald z 检验。</strong>检验 H₀：β＝0，计算：</p>
+<div class="equation">z＝(β̂−0) / SE(β̂)</div>
+<p>大样本下用标准正态分布判断双侧 p 值。常用门槛为 |z|＞1.645、1.96、2.576，分别对应10%、5%、1%的双侧显著性水平。它与常见 t 统计量都有“估计值÷标准误”的形式，但参考分布不同，不能看到括号就统称为 t 检验。Cox 模型还可以使用似然比或得分检验，并非只有一种检验。</p>
+<p><strong>拿原文练一遍：</strong>Table 2 第（1）列的 Δlog(Patents p.c.) 系数是 −0.039，标准误是0.380。按通常的 Wald z 方法演示：</p>
+<div class="equation">z＝−0.039 / 0.380≈−0.103<br>|z|≈0.103＜1.645，双侧 p≈0.918</div>
+<p>这个估计离0只有约0.103个标准误，不能据此认为该变量与设庭时点存在显著关系。e<sup>−0.039</sup>≈0.962 是点估计对应的风险比，但<strong>不应因此宣称已发现显著的风险率下降</strong>。</p>
+<p><strong>核对边界：</strong>上面的 z 和 p 是根据原文系数、标准误做的教学计算，不是论文另行报告的数值。Table 2 注释没有明确交代其具体检验实现；结合原文同时使用“离散时间风险模型”和“Cox模型”的表述，汇报不宜断言作者的软件一定做了哪一种检验。标准 Cox 的常见输出可查<a href="https://stat.ethz.ch/R-manual/R-devel/library/survival/html/summary.coxph.html">R survival 官方说明</a>。</p>
+<p>注意：这里的检验统计量 z，与衡量企业违约风险的 Altman Z-score 不是同一个概念。</p>
+<details><summary>闭卷自测：若一张表报告风险比0.96，应检验它等于0还是等于1？</summary><p>检验等于1；它等价于检验对应 β＝0。若你记成0，请回到 exp(0)＝1。</p></details>
+<p class="source">来源：论文 Table 2（PDF第6页）；常规检验原理来自 Cox 模型统计推断，教学计算单独标明。</p>
+</section><section class="entry"><h3 id="part-21">Q18．它与平行趋势、安慰剂检验是什么关系？原文模型表述还有什么要保留？</h3>
+<table>
+<thead>
+<tr>
+<th>检验</th>
+<th>对应担忧</th>
+<th>汇报时的边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cox设庭时点检验</td>
+<td>某些可观测城市变化是否预测改革到来</td>
+<td>没发现预测关系，不等于完全随机</td>
+</tr>
+<tr>
+<td>Sun–Abraham事件研究</td>
+<td>改革前是否已有不同变化趋势，并展示动态效应</td>
+<td>前期不显著是支持性证据，不是无条件证明</td>
+</tr>
+<tr>
+<td>随机安慰剂</td>
+<td>真实估计是否容易由随机处理安排得到</td>
+<td>不能因此排除一切遗漏因素</td>
+</tr>
+<tr>
+<td>控制相关政策</td>
+<td>巡回法庭、创新城市试点是否混淆结果</td>
+<td>只针对实际纳入的政策</td>
+</tr>
+<tr>
+<td>邻近城市对照</td>
+<td>提高对照城市的可比性后，结论是否稳健</td>
+<td>仍依赖相应识别条件</td>
+</tr>
+<tr>
+<td>专利侵权案件检验</td>
+<td>是否支持知识产权司法改善这一替代解释</td>
+<td>无显著变化不等于穷尽所有替代解释</td>
+</tr>
+</tbody></table>
+<p>原文安慰剂程序不仅随机划分城市处理组，也随机分配处理年份，重复1000次；不宜只记成“随机抽1000个城市”。这些是本次讨论重点涉及的识别检验，不是全文所有稳健性检验的完整清单。</p>
+<p><strong>原文表述边界：</strong>正文称“离散时间风险模型”，Table 2表注称“包含时变可观测城市特征的Cox模型”。论文没有完整交代相关实现细节。第二部分解释的是标准Cox原理，不能由此断言作者采用了哪一种同年并列事件处理方法，或自行补出其未报告的估计流程。</p>
+<p>来源：论文第4节、第6.3.3节，Table 2、Figure 4、Figure 5及相关稳健性表。不同并列事件处理方法可见 <a href="https://www.stat.ethz.ch/R-manual/R-devel/library/survival/html/coxph.html">R官方文档</a>。</p>
+</section><h2 id="part-22">第四部分：主效应、交互项与“分流—汇合”表达</h2>
+<section class="entry"><h3 id="part-23">Q19．讨论 Table 6 时，到底在比较哪两组、哪两个结果变量？</h3>
+<p><strong>背景：</strong>你希望把“交互项为负、Tribunal主效应为正”的长句简化成有分流、有汇合的图。</p>
+<p>先明确变量：</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>在该表中的含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>subsidy_seeking＝1</td>
+<td>按研发强度门槛附近规则归类的寻补贴企业代理组</td>
+</tr>
+<tr>
+<td>subsidy_seeking＝0</td>
+<td>未被该规则归入上述组的其他企业，即参照组</td>
+</tr>
+<tr>
+<td>Tribunal</td>
+<td>企业所在城市是否已经设立破产专门法庭</td>
+</tr>
+<tr>
+<td>第(1)—(3)列结果</td>
+<td>当年新增贷款÷资产，单位为%</td>
+</tr>
+<tr>
+<td>第(4)—(6)列结果</td>
+<td>研发支出÷销售额，单位为%</td>
+</tr>
+</tbody></table>
+<p>所以图上写“新增贷款强度”“研发强度”比只写“贷款”“研发投入”更精确。比例变量上升不必然意味着分子绝对金额上升。</p>
+<p>来源：Table 6及表注，PDF第9页。</p>
+</section><section class="entry"><h3 id="part-24">Q20．主效应和交互项分别回答什么？为什么要相加？</h3>
+<p><strong>理解补充：</strong>为解释系数，暂用一个简化模型，省略固定效应等细节；字母a、b、c仅用于教学，并非替换原文模型符号。</p>
+<blockquote>
+<p>Y＝其他项＋a×Tribunal＋b×subsidy_seeking＋c×Tribunal×subsidy_seeking。</p>
+</blockquote>
+<p>把组别分别代进去：</p>
+<table>
+<thead>
+<tr>
+<th>企业组别</th>
+<th>subsidy_seeking</th>
+<th>模型中改革对应的变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>其他企业（参照组）</td>
+<td>0</td>
+<td>a</td>
+</tr>
+<tr>
+<td>寻补贴企业代理组</td>
+<td>1</td>
+<td>a＋c</td>
+</tr>
+<tr>
+<td>两组改革变化之差</td>
+<td>—</td>
+<td>c</td>
+</tr>
+</tbody></table>
+<p><strong>主效应a</strong>说明参照组的改革效应；<strong>交互项c</strong>说明另一组相较参照组多变或少变多少。</p>
+<p>这里的“变化”是回归控制其他因素后、在研究识别框架下的改革效应，不是简单的原始数据前后均值差。</p>
+</section><section class="entry"><h3 id="part-25">Q21．为什么“交互项显著为负”不等于“寻补贴企业绝对下降”？</h3>
+<p>因为交互项只给出两组变化的差，寻补贴代理组自身的改革效应要看<strong>a＋c</strong>。</p>
+<p><strong>教学例子，单位均为百分点：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参照组效应a</th>
+<th>交互项c</th>
+<th>寻补贴代理组效应a＋c</th>
+<th>正确解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>＋2</td>
+<td>−1</td>
+<td>＋1</td>
+<td>两组都增加，代理组增加得更少</td>
+</tr>
+<tr>
+<td>＋1</td>
+<td>−1</td>
+<td>0</td>
+<td>参照组增加，代理组没有模型预测的净变化</td>
+</tr>
+<tr>
+<td>＋0.5</td>
+<td>−1</td>
+<td>−0.5</td>
+<td>参照组增加，代理组下降</td>
+</tr>
+</tbody></table>
+<p>三行交互项都是−1，代理组自身效应却可以为正、零或负。</p>
+<p>因此，“相对下降”可以用于描述组间差异，但<strong>“改革效应低于其他企业”更不容易被误听成绝对下降</strong>。</p>
+</section><section class="entry"><h3 id="part-26">Q22．能不能把两个系数的显著性直接加起来？为什么有的列没报告Tribunal主效应？</h3>
+<p>不能。判断a＋c是否显著，需要其联合标准误，其中涉及a与c估计量的协方差。a显著、c显著，不自动意味着a＋c也显著。</p>
+<p>Table 6部分设定加入城市×年份固定效应。Tribunal是在城市—年份层面变化的变量，主效应会被这类固定效应吸收；组间交互项仍可能凭借城市—年份内部的企业组别差异识别。</p>
+<p>因此要说：<strong>“在报告主效应的相应列，Tribunal显著为正。”</strong>不能说每一列都报告了显著为正的主效应，也不能把空白单元格理解成系数为零。</p>
+</section><section class="entry"><h3 id="part-27">Q23．Table 6中的系数单位怎么读？怎样概括得简短又准确？</h3>
+<p>因变量以百分数表示，系数应按<strong>百分点</strong>理解。例如交互项−1.299代表两组改革效应相差−1.299个百分点，不是直接减少1.299%。</p>
+<p>用样本均值作尺度比较，是另外一步计算。比如1.299÷21.0约为6.2%，意思是该差异约相当于样本均值的6.2%，不能把两种单位混用。</p>
+<p><strong>适合放在结果页的概括：</strong></p>
+<blockquote>
+<p>寻补贴代理组的新增贷款强度与研发强度，改革效应均低于其他企业；参照组相应主效应为正。结果支持信贷再配置解释。</p>
+</blockquote>
+<p>这样保留了比较对象、指标口径和证据强度。</p>
+</section><section class="entry"><h3 id="part-28">Q24．怎样把长句变成“先分流，再汇合”的图？</h3>
+<p><strong>汇报建议：</strong>分流展示两组结果，汇合展示共同的机制解释。箭头表达“组织结果与解释”，不表示直接观测到一笔贷款从左边流到右边。</p>
+<pre><code class="language-text">                      破产专门法庭设立
+                              │
+                  ┌───────────┴───────────┐
+                  ↓                       ↓
+        寻补贴企业代理组             其他企业（参照组）
+        交互项显著为负               相应主效应显著为正
+                  ↓                       ↓
+       新增贷款强度、研发强度       新增贷款强度、研发强度
+         改革效应低于参照组             改革效应为正
+                  │                       │
+                  └───────────┬───────────┘
+                              ↓
+                   支持信贷再配置机制解释
+</code></pre>
+<p><strong>建议配一行小注：</strong>寻补贴企业依据门槛附近规则识别；负交互项表示相对效应较低，不能单独判定该组绝对下降。</p>
+<p>不要把合流结论写成“已证明资金由寻补贴企业直接转入其他企业”。分组结果支持机制解释，但没有把同一笔资金的流向逐笔连起来。</p>
+</section><h2 id="part-29">第五部分：机制与代理变量，讲到什么程度才准确</h2>
+<section class="entry"><h3 id="part-30">Q25．“债权人激励效应”和“信贷再配置效应”为什么要分开？</h3>
+<table>
+<thead>
+<tr>
+<th>机制</th>
+<th>核心问题</th>
+<th>论文解释的链条</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>债权人激励效应</td>
+<td>资金供给是否更充足？</td>
+<td>执行与回收预期改善→放贷意愿增强→企业融资和创新得到支持</td>
+</tr>
+<tr>
+<td>信贷再配置效应</td>
+<td>资金在企业之间是否分配得更有效？</td>
+<td>低效率企业占用资源的状况缓解→资源向更具创新能力的企业配置</td>
+</tr>
+</tbody></table>
+<p><strong>最短记忆：</strong>一条看“供给总量扩张”，一条看“既有资源重新分配”。再配置在概念上不以总量增加为必要条件；这不表示论文证明了总量始终不变。</p>
+<p>来源：论文第6节及结论。</p>
+</section><section class="entry"><h3 id="part-31">Q26．为什么研发强度恰好超过门槛，可以作为“寻补贴企业”的代理？</h3>
+<p>论文利用高新技术企业资格相关政策：研发强度达到相应门槛与税收优惠相关。门槛附近出现堆积，符合部分企业为满足资格要求而调整研发支出的解释。作者将门槛上方0.5个百分点内的企业归入寻补贴代理组。</p>
+<p><strong>教学换算：</strong>若某档门槛为4%，上方0.5个百分点意味着靠近4%至4.5%的区间，不是4%×1.005＝4.02%。端点如何在数据中处理应以实际代码为准。</p>
+<p>这是依据可观察特征进行的分组，<strong>不是逐家调查并确认企业主观动机</strong>。这句话是帮助理解代理变量边界的说明，不作为论文逐字引文。</p>
+<p>来源：第6.3.1节及脚注7，PDF第8页；Figure 2与Table 6。</p>
+</section><section class="entry"><h3 id="part-32">Q27．续费专利为什么被称为“价值驱动”？可以直接证明专利很有价值吗？</h3>
+<p><strong>论文内容：</strong>作者依据专利续费行为区分价值驱动和补贴驱动专利。持续付费维护与专利具有持续经济或战略价值相一致；不续费的模式则被用于识别另一类专利。</p>
+<p><strong>理解边界：</strong>续费行为是用于分类和衡量价值的代理信息，不是专利经济价值的直接金额测量，也不是每项专利动机的直接观察。</p>
+<p><strong>汇报用语：</strong>“作者以续费行为代理专利的持续价值，并据此考察改革后专利组合的变化。”</p>
+<p>来源：第6.3.1节、Table 8，相关解释与表格见PDF第11—12页。</p>
+</section><section class="entry"><h3 id="part-33">Q28．为什么机制证据要说“支持解释”，不能总说“证明了机制”？</h3>
+<p>要分清三个层次：</p>
+<ol>
+<li><strong>观察到的结果：</strong>回归中融资、研发或专利指标的变化。</li>
+<li><strong>机制解释：</strong>这些变化与债权人激励或信贷再配置的理论预期一致。</li>
+<li><strong>直接追踪：</strong>具体哪家银行减少了对哪家企业的哪笔贷款，并将资金投给哪家企业。</li>
+</ol>
+<p>不能用前两层的结果，直接替代第三层的证据。尤其是Table 6的组间差异，不能画成已被逐笔证实的资金转移路径。</p>
+<p>也不要反过来把原文全部机制分析都改称“作者承认完全是间接证据”：论文第6.1节标题就使用了“Direct evidence”。应具体说明某张表直接测量什么、又支持何种机制解释。</p>
+<p><strong>措辞边界：</strong>“未逐笔追踪资金流向”是对所展示证据的范围说明；不要加引号写成作者原话，更不要给它配上不存在的原文页码。</p>
+<p>清算三重差分与表9 Panel C的证据边界，见<a href="#q45-ddd">Q45</a>。</p></section><section class="entry"><h3 id="part-34">Q29．银行竞争异质性，是不是说改革提高了银行竞争？</h3>
+<p>不是。作者用2012年的银行网点信息构造城市银行业集中度指标，检验改革效果是否因既有银行竞争环境而不同。HHI越低，代表竞争越强。</p>
+<p>因此，“Tribunal×HHI为负”对应：集中度较高时改革效应较弱，也就是竞争更强的环境中改革效应更强。</p>
+<p><strong>正确复述：</strong>“这是既有银行竞争环境下的效果差异，不是在估计改革对银行竞争本身的影响。”</p>
+<p>相应地，也不能把这项异质性回归讲成“作者通过它证明改革完全没有改变银行竞争”。它回答的是另一个问题。</p>
+<p>来源：正文银行竞争讨论及Table 15，PDF第15—16页。</p>
+<p>原文章节与PPT分类为何不同，见<a href="#q41-bank-placement">Q41</a>。</p></section><h2 id="part-35">第六部分：怎样让学术汇报更连贯、更容易记住</h2>
+<section class="entry"><h3 id="part-36">Q30．“用句子串起来”是不是每页都要写成长段落？</h3>
+<p>不需要。你真正需要的是显性的逻辑关系，而不是更多字。</p>
+<p><strong>汇报建议：</strong>每页保留一个结论句，再用图、关键系数和短句提供证据。口头过渡负责交代“上一页回答了什么，下一页为什么出现”。</p>
+<p>例如：</p>
+<blockquote>
+<p>前面发现改革后创新增加；接下来要判断这一变化是否伴随融资改善，以及哪类企业的融资变化更明显。</p>
+</blockquote>
+<p>这句话把“结果页”和“机制页”接起来，比只写“机制分析”更能帮助听众定位。</p>
+</section><section class="entry"><h3 id="part-37">Q31．为什么应保留原来逻辑较好的箭头图和分支结构？</h3>
+<p>因为它们已经把关系表达出来：理论争论适合并列两条方向相反的路径；机制总览适合从同一改革分出两条渠道；组间回归适合分组展示后汇合解释。</p>
+<p>修改应优先补足缺失的关系和条件，而不是为了统一样式，把有效的图全部换成长句。</p>
+<p><strong>判断标准：</strong>听众能否看出“这页回答什么问题”“两个框是什么关系”“下一页为什么要讲”。</p>
+</section><section class="entry"><h3 id="part-38">Q32．代理变量提示、原文截图和小字注释应放在哪里？</h3>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>建议位置与处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“门槛附近是代理分组”</td>
+<td>放在寻补贴识别/回归证据页，读结果时就能看到</td>
+</tr>
+<tr>
+<td>“续费是价值代理”</td>
+<td>放在续费分类与结果旁</td>
+</tr>
+<tr>
+<td>完整局限与适用范围</td>
+<td>结尾集中归纳，但不替代证据页即时提示</td>
+</tr>
+<tr>
+<td>原文表格</td>
+<td>优先展示关键行、关键列及表号，保留变量、单位和显著性信息</td>
+</tr>
+<tr>
+<td>图表太拥挤</td>
+<td>选清楚的子图并说明其余图所在位置，或拆分；合并以可读性为前提</td>
+</tr>
+</tbody></table>
+<p><strong>中文说明不等于逐字引文。</strong>若是对原文的概括，应写“据原文整理”；只有核对过的原句才使用引号。</p>
+</section><section class="entry"><h3 id="part-39">Q33．底部进度条和重点强调，应保留什么规则？</h3>
+<p>这是你在本次PPT修改中确定的设计偏好：</p>
+<ul>
+<li>首尾页、目录页不放进度条。</li>
+<li>其他页底部进度条铺满页面宽度，颜色和字体与整页一致。</li>
+<li>标签依据本次目录概括，同一套PPT保持顺序一致，突出当前章节。</li>
+<li>每段长度随字数适当调整，同字数的段长度相同。</li>
+<li>保留有意义的加粗和强调色，优先突出结论、关键系数、比较条件与边界词。</li>
+</ul>
+<p><strong>特别值得强调的边界词：</strong>“相对”“代理”“在一定程度上”“既有环境”。这些词不只是修饰语，删掉后可能改变学术含义。</p>
+</section><h2 id="economic-meaning">第七部分：回归系数的经济含义——百分比、百分点与对数</h2>
+<section class="entry"><h3 id="grant-percentage-points">Q34．为什么表7的0.026要说“授权率提高2.6个百分点”，不能说“提高2.6%”？</h3>
+<p><strong>提问背景：</strong>论文 Table 7 第（2）列把专利授权率 Grant_ratio 作为因变量，Tribunal 的系数为0.026。这是<strong>以0—1表示的比例变量的水平变化</strong>，不是对数变量的变化。此前把它直接说成“授权率提高2.6%”会把单位混淆。</p>
+<p><strong>先记住两种问题：</strong>“从多少变成多少，差了多少”是绝对变化；“这个差额相当于原来的多少”是相对变化。百分比数值的绝对差，用“百分点”表示。</p>
+<p><strong>教学例子：假设没有改革时的授权率为50%。</strong>这个50%是帮助理解的假定，不是论文报告的基准均值。</p>
+<div class="equation">无改革：r₀＝0.500＝50.0%<br>有改革：r₁＝0.500＋0.026＝0.526＝52.6%</div>
+<table><thead><tr><th>要回答的问题</th><th>计算</th><th>结果</th></tr></thead><tbody>
+<tr><td>授权率差了多少？</td><td>52.6%−50.0%</td><td>提高2.6<strong>个百分点</strong></td></tr>
+<tr><td>增加量相当于原来的多少？</td><td>(0.526−0.500)/0.500＝0.052</td><td>相对提高5.2<strong>%</strong></td></tr>
+<tr><td>如果真是“相对提高2.6%”呢？</td><td>50.0%×(1＋2.6%)</td><td>变成51.3%，不是52.6%</td></tr>
+</tbody></table>
+<p><strong>为什么系数0.026会变成2.6？</strong>因为0.01的比例差就等于1个百分点，所以0.026×100＝2.6个百分点。这里乘100是在换单位，不是在除以改革前水平。</p>
+<p><strong>要说“相对提高多少%”，必须另有分母。</strong>若基准率为20%，同样的0.026对应0.026/0.20＝13%的相对增长；若基准率为50%，对应5.2%。因此仅凭0.026，不能唯一确定相对增幅。</p>
+<blockquote><p>适合组会的说法：表7第（2）列显示，在控制其他条件后，改革使专利授权率提高约2.6个百分点。这里是授权率的绝对差，不是相对增加2.6%。</p></blockquote>
+<p><strong>证据强度：</strong>该系数为0.026*（标准误0.014），原表仅在10%水平显著，讲述时不要暗示为5%或1%水平显著。</p>
+<details><summary>闭卷自测：授权率由40%变为42.6%，提高几个百分点？相对提高多少？</summary><p>提高2.6个百分点；相对提高2.6/40＝6.5%。如果把二者都回答成2.6%，漏掉的是“相对变化需要除以原水平”这一步。</p></details>
+<p class="source">原文定位：Table 7 第（2）列、相关变量定义及脚注9，PDF第11页。50%和40%的起点是教学假设，不是论文样本均值。</p>
+</section>
+
+<section class="entry"><h3 id="log-relative-change">Q35．数量取自然对数后，为什么系数反映“相对变化”？用表7的0.076一步步推导</h3>
+<p><strong>提问背景：</strong>同一张回归表，为什么数量的系数可以转成百分比，而授权率系数要读成百分点？关键不是“都是系数”，而是<strong>回归左边的因变量经过了什么变换</strong>。先讲真正的 ln(N)，下一题再单独讲本文基准回归的 ln(1＋N)。</p>
+<p><strong>原文例子：</strong>Table 7 第（1）列因变量 log(Number) 是城市层面最终获授权的专利申请数量的自然对数，Tribunal 系数为0.076*，标准误0.046。这里的 Number 不是授权率，也不是某一年所有授权公告的简单数量。</p>
+<p><strong>第一步：把其他条件收在 A 中。</strong>用 D 表示 Tribunal。为了只看改革这个变量，把控制变量、固定效应等组成的线性预测部分记为 A：</p>
+<div class="equation">ln(N) 的模型预测值＝A＋βD</div>
+<p>D＝0 表示未处理状态，D＝1 表示处理状态。下面 N₀、N₁表示<strong>同等其他条件下，两种状态的模型预测对数值取指数后的数量尺度值</strong>。这不是把城市真实改革前后的原始数量直接相减；在DID中，关键比较是“有改革”与“没有改革的反事实”。</p>
+<p><strong>第二步：分别代入0和1。</strong></p>
+<div class="equation">ln(N₀)＝A<br>ln(N₁)＝A＋β</div>
+<p><strong>第三步：两式相减，其他条件 A 抵消。</strong></p>
+<div class="equation">ln(N₁)−ln(N₀)＝β</div>
+<p><strong>第四步：对数的“差”，等于原数“比”的对数。</strong>这是从绝对差走向相对变化的关键：ln(a)−ln(b)＝ln(a/b)，不是 ln(a−b)。</p>
+<div class="equation">ln(N₁/N₀)＝β</div>
+<p><strong>第五步：两边取指数，撤掉自然对数。</strong>因为 exp 和 ln 互为逆运算，exp[ln(x)]＝x：</p>
+<div class="equation">N₁/N₀＝e<sup>β</sup></div>
+<p>到这里，e<sup>β</sup> 是“新水平是原水平的几倍”。但倍数还不是增幅；例如1.08倍是原来的108%，其中100%是原有的部分。</p>
+<p><strong>第六步：减去原有的1，再换成百分数。</strong></p>
+<div class="equation">相对变化＝(N₁−N₀)/N₀<br>＝N₁/N₀−1＝e<sup>β</sup>−1<br>相对变化率＝(e<sup>β</sup>−1)×100%</div>
+<p><strong>第七步：代入原文 β＝0.076。</strong></p>
+<div class="equation">e<sup>0.076</sup>≈1.07896<br>(e<sup>0.076</sup>−1)×100%≈7.90%</div>
+<p>因此，在这一模型尺度下，数量约增加7.9%。小系数时 e<sup>β</sup>−1≈β，所以也常用0.076×100%＝7.6%作为一阶近似；<strong>7.6%是近似，7.9%是指数换算</strong>。</p>
+<table><thead><tr><th>假定无改革数量（教学例子）</th><th>有改革的模型尺度数量</th><th>增加量</th><th>相对增幅</th></tr></thead><tbody>
+<tr><td>100</td><td>100×1.07896≈107.90</td><td>约7.90</td><td>约7.9%</td></tr>
+<tr><td>1000</td><td>1000×1.07896≈1078.96</td><td>约78.96</td><td>约7.9%</td></tr>
+</tbody></table>
+<p>这正是“相对变化”：起点不同，增加的件数不同，但乘上的倍数相同。表中的小数是模型尺度的示意值，不表示现实中存在0.90件专利。</p>
+<p><strong>严格边界：</strong>对数回归直接拟合的是“对数值的条件均值”E[ln(N) | X]，不是“原数量条件均值的对数”ln(E[N | X])。将预测的对数取指数，一般不等于原数量的条件算术均值。若要把7.9%进一步解释成“原始数量的条件均值增长率”，还需合适的误差分布或重转换条件。组会可按常规讲相对变化，但不应把这个换算说成无需任何条件的原始均值变化。</p>
+<details><summary>闭卷自测：如果 β＝ln(1.10)，eᵝ 是多少？增幅是多少？为什么不能说增长110%？</summary><p>eᵝ＝1.10，增幅＝1.10−1＝10%。110%是新水平占原水平的比例，不是增加的部分。若漏了减1，回看第五步到第六步。</p></details>
+<p class="source">原文定位：Table 7 第（1）列、脚注9，PDF第11页。指数换算为数学推导；100、1000的基准数量为教学假设。</p>
+</section>
+
+<section class="entry"><h3 id="log-one-plus">Q36．本文基准回归用 ln(1＋专利数)，系数0.109为什么被说成“约增加11%”？与 ln(N) 有何不同？</h3>
+<p><strong>先解释为什么加1：</strong>若某企业某年专利数 N＝0，ln(0)没有定义；但 ln(1＋0)＝ln(1)＝0，可以保留这个零专利年份。是<strong>“先加1”</strong>解决了零值问题，不是自然对数本身能处理0。</p>
+<p><strong>论文口径：</strong>基准回归的创新数量指标使用 ln(1＋原始数量)。Table 3 中专利申请的基准估计0.109，被作者概括为专利申请约增加11%。下面把它的近似与严格含义拆开。</p>
+<p><strong>第一步：仍然固定其他条件，用两种状态作比较。</strong></p>
+<div class="equation">ln(1＋N₀)＝A<br>ln(1＋N₁)＝A＋0.109</div>
+<p><strong>第二步：相减，再取指数。</strong></p>
+<div class="equation">ln[(1＋N₁)/(1＋N₀)]＝0.109<br>(1＋N₁)/(1＋N₀)＝e<sup>0.109</sup>≈1.11516</div>
+<p><strong>关键：</strong>严格发生约11.52%比例变化的是<strong>“1＋专利数”</strong>，不是不加区分地说“专利数本身”。0.109×100%＝10.9%是小系数的一阶近似，四舍五入即约11%；与此不同，指数换算约为11.5%。</p>
+<p><strong>第三步：若坚持算原始专利数的变化，要先把加的1减回来。</strong></p>
+<div class="equation">1＋N₁＝e<sup>0.109</sup>(1＋N₀)<br>N₁＝e<sup>0.109</sup>(1＋N₀)−1</div>
+<p><strong>第四步：当 N₀＞0 时，再除以原始专利数。</strong></p>
+<div class="equation">(N₁−N₀)/N₀<br>＝[e<sup>0.109</sup>(1＋N₀)−1−N₀]/N₀<br>＝(e<sup>0.109</sup>−1)(1＋N₀)/N₀<br>＝(e<sup>0.109</sup>−1)(1＋1/N₀)</div>
+<table><thead><tr><th>假定 N₀（教学例子）</th><th>换算得到 N₁</th><th>原始 N 的相对变化</th></tr></thead><tbody>
+<tr><td>1</td><td>1.11516×2−1≈1.230</td><td>约23.03%</td></tr>
+<tr><td>10</td><td>1.11516×11−1≈11.267</td><td>约12.67%</td></tr>
+<tr><td>100</td><td>1.11516×101−1≈111.631</td><td>约11.63%</td></tr>
+<tr><td>0</td><td>1.11516×1−1≈0.115</td><td>无法除以0，不能定义通常的百分比增长率</td></tr>
+</tbody></table>
+<p>当 N₀ 较大时，1/N₀ 很小，“1＋N”的比例变化才接近 N 的比例变化；起点接近0时，差别可能明显。以上只是对模型对数预测值反变换的示意，同样受上一题所说的“预测对数不等于原值算术均值”限制，不能当作论文实际逐企业预测。</p>
+<blockquote><p>适合组会的说法：基准系数为0.109，作者将其经济量级概括为专利申请约增加11%。严格说，因变量是 ln(1＋专利数)，因此这是常用的近似表述，不能理解成每一家企业的原始专利数都恰好增加11%。</p></blockquote>
+<details><summary>闭卷自测：为什么不能把“零件变一件”说成“增加100%”？</summary><p>相对增长率要除以起点，而起点为0。这里能说“增加1件”，不能计算通常的百分比增幅。能取 ln(1＋N) 不代表能对 N＝0 计算百分比增长。</p></details>
+<p class="source">原文定位：创新指标定义及 Table 3 的基准结果，PDF第7页。所有换算均区分论文概括、数学推导与教学例子。</p>
+</section>
+
+<section class="entry"><h3 id="coefficient-unit-guide">Q37．读系数时怎样先判断单位？表6中为什么可以用0.555除以8.9，百分号去哪了？</h3>
+<p><strong>把前三题串起来：</strong>先看因变量如何定义，再看系数代表哪一组或哪种差异，最后才决定乘100、取指数，还是除以基准水平。不能见到0.026就自动读成2.6%。</p>
+<table><thead><tr><th>模型左边是什么</th><th>β 的直接含义</th><th>换算注意事项</th></tr></thead><tbody>
+<tr><td>数量 N（未取对数）</td><td>增加 β 个数量单位</td><td>需要除以基准数量，才是相对增幅。</td></tr>
+<tr><td>0—1比例 r</td><td>比例变化 β</td><td>等于100β个百分点；0.026即2.6个百分点。</td></tr>
+<tr><td>已乘100的百分数指标，如 R&amp;D (%)</td><td>变化 β 个百分点</td><td>0.555就是0.555个百分点，不能再乘100说成55.5个百分点。</td></tr>
+<tr><td>ln(N)</td><td>对数尺度变化 β</td><td>指数换算为倍数 eᵝ，相对变化为 eᵝ−1。</td></tr>
+<tr><td>ln(1＋N)</td><td>“1＋N”的对数尺度变化 β</td><td>eᵝ是1＋N的倍数；原始 N 的相对变化还与起点有关。</td></tr>
+<tr><td>Cox 模型的风险率</td><td>β 是对数风险比</td><td>eᵝ是风险率之比，不是专利数量或年度发生概率之比。</td></tr>
+</tbody></table>
+<p><strong>表6的延伸问题：</strong>R&amp;D 以百分数单位记录，样本均值为8.9%。交互项 −0.555 表示两组改革效应相差 −0.555个百分点。把差异幅度与样本均值相比：</p>
+<div class="equation">0.555个百分点 / 8.9个百分点<br>＝0.555 / 8.9≈0.06236＝6.24%<br>等价写法：0.00555 / 0.089≈6.24%</div>
+<p><strong>所以不是把分母的百分号随便删掉了。</strong>分子、分母采用相同的百分数尺度，换成0—1尺度时都除以100，两个100抵消，比例不变。这里的6.24%是<strong>差异幅度相当于全样本均值的比例</strong>，不是该组企业自己的研发强度下降6.24%。</p>
+<p>同理，新增贷款的样本均值为21.0%，交互项幅度0.851和1.299个百分点，分别相当于0.851/21.0≈4.05%、1.299/21.0≈6.19%，因此常概括为均值的4%—6%。研发主效应0.506个百分点相对8.9%的均值约为5.69%，更精确可说“约5.7%”或“约5%—6%”。</p>
+<p><strong>一定接上组别解释：</strong>主效应对应非补贴寻求组；交互项是两组效应之差。寻补贴组的总效应要把主效应和交互项相加，且总效应的显著性需要另行检验，不能仅凭交互项为负就说该组绝对下降。完整说明见<a href="#part-24">Q20</a>—<a href="#part-27">Q23</a>。</p>
+<blockquote><p>复述口诀：先看左边是什么单位，再看右边比较谁；百分点说差额，百分比说比例；取指数先得倍数，再减1才是增幅。</p></blockquote>
+<details><summary>最后自测：为什么同样的0.026，在授权率回归和对数数量回归中读法不同？</summary><p>因为左边不同。0—1授权率的0.026是2.6个百分点；ln(N)的0.026对应模型尺度数量约增加(e⁰·⁰²⁶−1)×100%≈2.63%。如果两者混淆，先回到变量定义，不要先套换算公式。</p></details>
+<p class="source">原文定位：Table 6，PDF第9页；Table 7，PDF第11页。相对样本均值的计算属于经济量级对照，不替代组别总效应的估计。</p>
+</section>
+<h2 id="literature-comparison">第八部分：与引用文献比较，怎样评价本文</h2>
+<section class="entry"><h3 id="q38-literature">Q38．能否查阅本文引用的文献，再比较它的贡献，而不是泛泛列“优点与不足”？</h3>
+<p><strong>提问背景：</strong>组会结尾需要评价论文，但“选题新颖、数据丰富、机制完整”太笼统。更有说服力的评价应回答：<strong>前人已经做到哪一步？本文具体向前走了哪一步？还有哪一步没有直接证据？</strong></p>
+<p><strong>核对范围：</strong>以下是针对本文研究问题的定向文献比较，不是穷尽全部参考文献的系统综述。选取原文引用、与法律执行、创新融资和资源配置最相关的7篇研究。来源包括作者稿、期刊页面和研究机构摘要；表内标明核对范围，不把摘要核对说成全文精读。检索与核对日期：2026年10月21—22日。</p>
+<table><thead><tr><th>比较维度与原文所引研究</th><th>前人已经做了什么</th><th>Kong等本文的增量与边界</th></tr></thead><tbody>
+<tr><td>债权人保护与创新<br>Acharya &amp; Subramanian（2009），<em>Bankruptcy Codes and Innovation</em><br><a href="https://pages.stern.nyu.edu/~sternfin/vacharya/public_html/acharya_subramanian.pdf">作者稿：摘要与引言</a>（2008年稿，对应2009年发表文献）</td><td>从破产法偏向债权人还是债务人出发，讨论过度清算如何削弱创新激励，并使用跨国差异及一国内的制度变化检验。</td><td>本文考察中国既有债权人友好法律下的<strong>执行改善</strong>，发现创新增加，说明不同制度背景下主导渠道可能不同。不能概括成“前人只有跨国相关性”，也不能说本文推翻了前人。</td></tr>
+<tr><td>债务人保护与融资约束<br>Cerqueiro等（2017），<em>Debtor Rights, Credit Supply, and Innovation</em><br><a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2016.2509">期刊摘要与书目信息</a></td><td>指出强化债务人保护可能收紧外部融资，减少创新和实验活动，已强调融资供给与失败容忍之间的权衡。</td><td>因此“融资供给渠道很重要”并非本文独有的新发现。本文的特色应落在<strong>中国法院执行改革、创新类型与再配置证据的组合</strong>上。</td></tr>
+<tr><td>债权人保护促进创新的先例<br>Mann（2018），<em>Creditor Rights and Innovation: Evidence from Patent Collateral</em><br><a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X18301776">期刊摘要与引言</a></td><td>使用美国专利抵押记录和法院判决带来的变化，发现专利债权人权利增强后，债务融资、研发和专利产出上升。</td><td>不能把本文说成“首次发现债权人保护促进创新”。Mann直接观察专利抵押；本文覆盖更一般的破产执行，但没有同等细致地追踪贷款从一个借款人转到另一个借款人的过程。</td></tr>
+<tr><td>中国破产专门法庭<br>Li &amp; Ponticelli（2022），<em>Going Bankrupt in China</em><br><a href="https://www.nber.org/system/files/working_papers/w27501/w27501.pdf">NBER修订稿摘要</a>；<a href="https://academic.oup.com/rof/issue/26/3">期刊卷期确认</a></td><td>已经研究同类改革，利用案件数据比较同城同年专门法庭与普通民事法庭的案件处理，并考察就业再配置、企业进入和资本生产率。</td><td>本文不是首次发现“设立专门法庭提高效率”，也不是首次提出再配置。增量是把改革连到<strong>企业创新的数量、类型、质量及信贷渠道</strong>。本次仅核对机构摘要和书目，未完成该文全文复核。</td></tr>
+<tr><td>法院执行与银行贷款<br>Ponticelli &amp; Alencar（2016），<em>Court Enforcement, Bank Loans, and Firm Investment</em><br><a href="https://www.bcb.gov.br/content/publicacoes/WorkingPaperSeries/wps425.pdf">巴西央行工作论文：摘要与引言</a>（发表前版本）</td><td>研究巴西改革与法院拥堵差异，考察贷款、投资和产出，并利用司法组织制度的工具变量及司法辖区边界附近的比较增强识别。</td><td>法院执行的真实经济后果已有基础。本文更聚焦创新；其识别主要依靠错位DID及配套检验，不能只因稳健性表格多，就断言识别比前人更强。不同识别设计仍各有假设。</td></tr>
+<tr><td>信贷总量与分配<br>von Lilienfeld-Toal等（2012），<em>The Distributive Impact of Reforms in Credit Enforcement</em><br><a href="https://people.bu.edu/dilipm/publications/ectadrt.pdf">作者托管发表版：摘要与引言</a></td><td>提出信贷供给缺乏弹性时，执行增强可能使富裕借款人受益、小借款人受损，并提供印度债务追偿法庭改革证据。</td><td>本文银行竞争结果可与该理论对接：改革效果依赖当地信贷市场环境。“再配置”也不天然等于福利改善；本文仍需靠企业效率和创新证据解释资源流向为何可能更有利。</td></tr>
+<tr><td>僵尸企业与资源错配<br>Caballero、Hoshi &amp; Kashyap（2008），<em>Zombie Lending and Depressed Restructuring in Japan</em><br><a href="https://www.nber.org/papers/w12129">NBER摘要及发表版本信息</a></td><td>研究僵尸贷款如何延缓退出、挤压健康企业，关联投资、就业和生产率变化。</td><td>“僵尸企业拖累经济”不是本文原创命题。本文的增量是考察法院改革能否缓解这种问题，并将证据进一步连接到创新；表9 Panel C的绩效差异本身不是资源转移的直接记录。</td></tr>
+</tbody></table>
+<blockquote><p>比较后的核心定位：本文把已有的“法院执行影响融资与配置”研究，推进到中国企业创新的结构性结果；其特色是把债权人激励、寻补贴行为、僵尸企业与银行竞争放到同一解释中，而不是凭空提出这些机制。</p></blockquote>
+<details><summary>闭卷自测：为什么不能说“本文首次证明债权人保护促进创新”？</summary><p>Mann（2018）等已经提供相关正向证据。更准确的创新点是：具体研究对象、执行冲击、创新结果和机制证据的组合。若只能记住“首次”，回到与前人比较的对象和边界。</p></details>
+<p class="source">Kong等原文定位：引言，PDF第1—3页；参考文献，第18页。比较评价是本手册基于所列来源作出的归纳，不是论文作者逐字自评。</p>
+</section>
+
+<section class="entry"><h3 id="q39-evaluation">Q39．比较文献以后，组会中可以怎样讲本文的优点、不足和毕业论文启发？</h3>
+<p><strong>优点要讲具体增量。</strong></p>
+<ol><li><strong>把“法条如何规定”推进到“执行是否有效”。</strong>同一国家框架下考察分期改革，减少部分跨国制度不可比性；但法院执行研究已有前人，不能把这一角度完全归为首创。</li><li><strong>不只看专利总量。</strong>区分探索式与利用式、引用、授权率、续费行为等结果，让“创新增加”更有内容，也便于交叉检验是否只是低质量专利扩张。</li><li><strong>机制预测彼此衔接。</strong>高风险企业、寻补贴企业、僵尸企业暴露和银行竞争分别提供不同角度的支持，形成比单一分组更丰富的证据链。</li></ol>
+<p><strong>不足要指出“哪条证据还差一步”，而不是因为用了DID就否定论文。</strong></p>
+<ol><li><strong>设庭选择仍需识别假设。</strong>城市设庭不是抽签，未观测的城市变化仍可能同时影响设庭和创新；表2不显著、安慰剂及邻城检验只能缓解而不能逻辑上消灭这一担忧，详见<a href="#q40-nonrandom">Q40</a>。</li><li><strong>再配置主要靠组合证据支持。</strong>清算增加、组别融资反应不同、僵尸暴露高的城市创新反应更强，不等于观察到了贷款在借款人之间逐笔转移。与Mann的专利抵押记录等直接数据相比，这一环节更依赖解释。</li><li><strong>代理指标不等于真实动机。</strong>研发门槛附近的企业、未续费专利分别是寻补贴行为的代理；续费也可能受融资约束、技术淘汰等影响，不能把分类当作逐户动机鉴定。</li><li><strong>适用范围和净福利尚有限。</strong>新三板企业的反应不必等于所有大型上市公司、国企或其他国家的反应；创新增加也不自动证明扣除清算失业等成本后的社会净收益为正。</li></ol>
+<p><strong>对毕业论文更可操作的启发：</strong>先确定数据能否支撑一个清楚的问题，再谈新机制。可以沿“执行环境→融资条件→创新结构”拆出较短链条；提出机制时先写它应产生什么可观测预测，并寻找至少一种有区分力的证据。若仅换一个因变量，要解释为什么改变了经济问题，而不仅仅是换了表头。具体选题仍需另做新文献查重、政策核验和数据可得性检查，这里不是宣称存在尚未研究的空白。</p>
+<blockquote><p>可直接讲：本文的价值不在于首次发现司法或融资影响创新，而在于利用中国破产执行改革，将创新的数量和结构变化与两条信贷渠道连接起来。主要保留意见是设庭选择仍依赖识别假设，且信贷再配置尚缺乏直接的资金流向证据。</p></blockquote>
+<p class="source">这是一份相对于Q38所列文献的评价，不是对全部相关研究的排名，也不以期刊级别代替证据判断。</p>
+</section>
+
+<h2 id="identification-and-robustness">第九部分：识别担忧、替代解释与安慰剂检验</h2>
+<section class="entry"><h3 id="q40-nonrandom">Q40．“设庭并非随机分配”为什么是一个识别担忧？是不是说明DID无效？</h3>
+<p><strong>不是说DID必须随机分组。</strong>随机实验靠随机分配提高可比性；本文这类观察性DID依赖的关键是：在控制既定差异后，<strong>如果没有设庭，处理城市与对照城市的创新走势应具有可比性</strong>。城市起点不同本身不必破坏DID；未被控制的差异化趋势或同步冲击才是关键风险。</p>
+<p><strong>为什么这里不是随机？</strong>制度背景说明，2016年的安排要求直辖市、省会和副省级城市等设庭，其他城市由省级高院安排。这是行政与制度选择，不是从所有城市中随机抽签。因此“自然实验”不能直接翻译成“随机实验”。</p>
+<p><strong>教学例子，非作者确认的事实：</strong>假如某城市同时推进产业创新扶持和法院改革，即使不设庭，其专利也会增长。若另一城市没有这两个变化，DID可能把创新扶持带来的增量一并归给设庭。反方向也可能发生：财政或债务困境促使先设庭，同时压低创新。偏误方向并非必然向上。</p>
+<table><thead><tr><th>作者采取的办法</th><th>能缓解什么</th><th>不能自动保证什么</th></tr></thead><tbody>
+<tr><td>企业固定效应、行业×年份固定效应、基期特征×年份、城市线性趋势</td><td>控制相应层面的固定差异、共同冲击及预设形式的趋势</td><td>不能捕获所有城市特有、非线性或突然出现的冲击</td></tr>
+<tr><td>Table 2设庭时点检验</td><td>未发现所检验可观测指标变化显著预测设庭</td><td>不等于不存在未观测的选择因素</td></tr>
+<tr><td>事件研究、随机安慰剂、邻城样本、其他政策控制</td><td>从时间模式、随机错配及样本可比性等角度提供支持</td><td>改革前不显著不证明趋势完全相同；随机错配也不能排除只与真实设庭相伴的遗漏政策</td></tr>
+</tbody></table>
+<blockquote><p>准确评价：设庭并非随机，因果解释仍依赖条件平行趋势及不存在关键同步混淆冲击等假设。作者提供了多项支持性检验，但对未观测城市变化的担忧不能完全排除。</p></blockquote>
+<details><summary>闭卷自测：处理城市原本专利更多，就一定不能做DID吗？</summary><p>不一定。DID不是要求两组水平相同，而是要求没有处理时的走势具备可比性。如果只是固定的水平差异，固定效应可以处理；如果本来就会越长越快，则是另一回事。</p></details>
+<p class="source">原文定位：制度背景PDF第3页；式（1）和Table 2第6页；稳健性与进一步讨论第13—16页。未观测政策的例子仅为识别原理说明。</p>
+</section>
+
+<section class="entry"><h3 id="q41-bank-placement">Q41．为什么原文把银行业结构放在稳健性部分，而PPT把它归入异质性检验？</h3>
+<p><strong>先纠正标题层次：</strong>原文第6.3.3节的完整标题是 <em>Robustness checks and further discussions</em>，即<strong>“稳健性检验与进一步讨论”</strong>，不是其中每一项都只能属于稳健性检验。银行业结构位于这一节末尾的 <em>The Role of Banking Structure</em>，对应Table 15。</p>
+<table><thead><tr><th>分类角度</th><th>银行业结构放在哪里</th><th>为什么</th></tr></thead><tbody>
+<tr><td>沿原文目录</td><td>稳健性检验与进一步讨论</td><td>忠实反映作者的章节组织</td></tr>
+<tr><td>按研究问题分类</td><td>异质性／调节作用／边界条件</td><td>检验同一改革在不同既有银行竞争环境中是否效果不同</td></tr>
+</tbody></table>
+<p>作者用2012年银行网点份额平方和构造HHI，HHI越高，银行业越集中。简化回归为：</p>
+<div class="equation">Y＝a×Tribunal＋b×Tribunal×HHI₂₀₁₂＋其他项<br>某一HHI水平下的改革效应＝a＋b×HHI₂₀₁₂</div>
+<p>Table 15第（1）列 b＝−0.910，显著为负，意味着在模型中<strong>集中度越高，改革的创新促进效应越弱</strong>；换成竞争语言，就是竞争更强的城市反应更强。它不是“改革提高了银行竞争”，也不是简单“加一个银行变量后结论仍稳健”。</p>
+<p><strong>对之前PPT分类的说明：</strong>按检验性质放在异质性部分有依据，但如果不说明这是汇报重组，会让人误以为原文单列了一个异质性章节。你最初要求尽量与原文对应，因此更稳妥的页面标题是：</p>
+<blockquote><p>进一步讨论：银行竞争与改革效果的差异<br><small>原文第6.3.3节，Table 15；按研究性质属于异质性分析。</small></p></blockquote>
+<p class="source">原文定位：第6.3.3节，PDF第13页起；银行业结构讨论第15—16页，Table 15第16页。基础概念另见<a href="#part-34">Q29</a>。</p>
+</section>
+
+<section class="entry"><h3 id="q42-footnote11">Q42．脚注11具体说了什么？为何要检验破产法庭改革是否影响专利诉讼？</h3>
+<p><strong>提问背景：</strong>破产法庭处理债务与退出问题，为什么论文还要查看专利侵权案件？脚注11解释了一个替代解释：专利增加，可能不全是新技术增加，也可能是企业把原本保密的技术改为申请专利。</p>
+<p><strong>脚注11完整中文译意（PDF第14页）：</strong></p>
+<blockquote><p>作者感谢匿名审稿人指出：破产改革之后，企业可能从保密转向申请专利。这一潜在渠道的前提是，专门破产法庭的设立改善企业获得信贷的条件，使其能够承担专利申请成本，或者增强知识产权保护。如果破产改革改善了知识产权保护，作者预期改革后与专利有关的法律纠纷数量会增加。</p></blockquote>
+<p><strong>拆成两条路径就容易理解：</strong></p>
+<ol><li><strong>融资路径：</strong>原来已有技术，但申请专利要花钱；融资更便利后，更愿意或更有能力申请。因此专利数量可能增加，即使技术存量并没有同比例增加。</li><li><strong>保护路径：</strong>如果知识产权保护变强，公开技术、申请专利可能更划算，企业由保密转向专利。作者据此提出一个经验预测：专利相关诉讼数量可能增加。</li></ol>
+<p><strong>作者实际查了什么？</strong>收集33,384份专利侵权纠纷裁判文书，汇总为城市—年份案件数量。Table 13分别用案件数及其对数作因变量；Tribunal系数为−15.945（标准误12.197）和−0.031（标准误0.305），均不显著。</p>
+<p><strong>结论应分层说：</strong>作者据此认为可以排除这一潜在机制；更审慎的读法是，<strong>没有发现专利案件数量变化支持“知识产权保护改善”这一路径</strong>。案件数不是审理速度、胜诉率或赔偿额的直接指标；保护加强也可能因威慑侵权、庭外和解等原因减少诉讼。因此，这一结果不能彻底排除所有知识产权渠道。</p>
+<p><strong>还不能漏掉：</strong>Table 13没有直接检验“融资改善→付得起申请费→保密转专利”这条路径。不能因为诉讼数量不显著，就说整个“由保密转为申请专利”的解释都被完全排除了。</p>
+<details><summary>闭卷自测：专利数上升，一定表示企业创造了同样比例的新技术吗？</summary><p>不一定。它可能同时反映真实创新、专利申请成本和知识产权保护方式的变化。脚注11就是在提醒区分“技术生产”和“专利化”。</p></details>
+<p class="source">原文定位：PDF第14页右下角脚注11及“Effect on patent cases”；Table 13与解释见第15页。保护可能减少纠纷等内容是对检验边界的理解补充。</p>
+</section>
+
+<section class="entry"><h3 id="q43-58cities">Q43．随机安慰剂检验为什么每轮选58个“虚假处理城市”？58从哪里来？</h3>
+<p><strong>补全问题：</strong>Fig. 5对应的安慰剂检验中，作者每轮随机指定58个城市为虚假处理组，其余城市为对照，再随机指定虚假设庭年份。为什么不是50、100或随机变化的数量？</p>
+<p><strong>直接答案：</strong>原文第3.1.2节说明，企业样本覆盖<strong>276个地级市，其中58个在观察期内设立了专门破产法庭</strong>。安慰剂保留与真实研究相同的处理城市数量，因此抽58个；其余为276−58＝218个。</p>
+<p>58不是模型算出来的最佳样本量，不是58家企业，也不是全国全部破产法庭数量。它是这篇论文<strong>实际企业样本覆盖城市中的处理城市数</strong>。</p>
+<p><strong>为什么保持数量？</strong>这样每次“假改革”的规模与真实改革相近，主要打乱的是“哪些城市、什么时候设庭”，而不是同时大幅改变处理组规模。在原文设定下，虚假处理比例约为58/276≈21.0%。</p>
+<p><strong>不要误读“pure control”：</strong>这里指在<strong>该轮虚假分配</strong>中始终不被标为处理的城市，不意味着这些城市在现实中从未设庭。一次随机分配可能把真实处理城市划入虚假对照，也可能反过来。</p>
+<details><summary>闭卷自测：真实设庭城市有58个，所以每轮必须选中这58个原城市吗？</summary><p>不是。固定的是数量58，城市身份要重新随机分配；若始终用同一批真实城市，就不是原文所描述的城市身份随机化。</p></details>
+<p class="source">原文定位：样本城市数，PDF第4页第3.1.2节；安慰剂步骤，第13页“Placebo tests”；Fig. 5，第16页。</p>
+</section>
+
+<section class="entry"><h3 id="q44-placebo-specification">Q44．“按表3第（1）列相同设定，重复估计1000次”究竟保持什么、随机改变什么？</h3>
+<p><strong>不是把原回归原封不动跑1000遍。</strong>相同数据和解释变量反复做相同OLS，通常得到的还是同一个系数。这里每轮都重建一个不同的<strong>虚假政策变量</strong>，然后用同一套回归框架估计。</p>
+<p><strong>先还原表3 Panel A第（1）列：</strong>企业—年份层面的因变量是 ln(1＋最终获授权的专利申请数)，不是Cox风险率，也不是城市清算数。把原文式（1）与正文及表3实际勾选项展开，可写为下列教学式：</p>
+<div class="equation">Yᵢₜ＝aD꜀ₜ＋φᵢ＋λₛₜ＋η<sub>Ageᵢₜ</sub><br>＋δₜ′Xᵢ,₂₀₁₂＋κ꜀×t＋εᵢₜ</div>
+<table><thead><tr><th>设定</th><th>具体含义</th><th>每轮是否重新随机化</th></tr></thead><tbody>
+<tr><td>Yᵢₜ</td><td>原企业的实际专利结果；引用安慰剂则换为对应的ln(1＋调整引用数)</td><td>不打乱结果数据</td></tr>
+<tr><td>φᵢ：企业固定效应</td><td>控制企业不随时间变化的差异</td><td>保留相同设定</td></tr>
+<tr><td>λₛₜ：行业×年份固定效应</td><td>控制每个行业在每一年的共同冲击</td><td>保留；它已经涵盖普通年份共同效应</td></tr>
+<tr><td>η：企业年龄固定效应</td><td>控制不同企业年龄对应的共同差异</td><td>保留</td></tr>
+<tr><td>Xᵢ,₂₀₁₂×年份效应</td><td>2012年Size、Roa、Lev、Tangibility与年份虚拟变量交互</td><td>保留真实基期特征，不改成虚假设庭年前一年的值</td></tr>
+<tr><td>κ꜀×t：城市特定线性趋势</td><td>允许各城市有自己的线性发展趋势</td><td>保留</td></tr>
+<tr><td>标准误</td><td>表3为城市—年份聚类</td><td>沿用相同推断设定；聚类主要影响标准误，不是生成1000个系数差异的来源</td></tr>
+<tr><td>D꜀ₜ：设庭状态</td><td>真实回归中：真实设庭当年及以后为1</td><td><strong>这里改变：</strong>改用该轮随机城市与随机年份生成D⁽ᵇ⁾꜀ₜ</td></tr>
+</tbody></table>
+<p>Size为营业收入的自然对数，不要误记成资产对数。本文式（1）本身只显示简写λₜ等符号；上式为根据正文和表3补全的解释式，<strong>不是原公式的逐字复制</strong>。</p>
+<p><strong>一轮完整过程：</strong></p>
+<ol><li>从样本城市中随机指定58个虚假处理城市。</li><li>给每个虚假处理城市随机指定一个虚假事件年份g⁽ᵇ⁾꜀。</li><li>构造D⁽ᵇ⁾꜀ₜ：被选中的城市在虚假事件当年及之后为1，其余为0；同城企业使用同一个城市—年份政策状态。</li><li>在上述回归中，用D⁽ᵇ⁾替换真实D，保留结果变量、控制结构及估计框架，得到一个虚假政策系数â⁽ᵇ⁾。</li><li>重新抽城市、重新指定年份，再估计；共做1000轮，得到1000个系数。</li><li>分别对专利申请与引用构造经验累积分布，将真实估计放入比较。</li></ol>
+<p><strong>图5怎样读：</strong>横轴是虚假系数，纵轴F(x)表示1000个虚假系数中“小于或等于x”的比例。真实估计在右尾，是因为它为较大的正值；“尾部”包括左尾和右尾，不只指左边。原文报告专利申请没有虚假系数大于真实估计，引用只有1个大于真实估计。</p>
+<p><strong>两个边界：</strong>第一，原文只说随机指定事件年份，没有详细公布抽样年份的概率、是否保持各年份设庭数量、随机种子等，不能自行补成“均匀抽取2012—2020每一年”或“严格保持原年分布”。第二，作者说按第（1）列设定估计，引用图应理解为<strong>沿用同一控制框架，但换成引用结果变量</strong>；第（1）列本身并不是引用回归。</p>
+<p>1000次中没有更大值不等于真实概率严格为0。这个检验说明真实估计相对随机错配结果较突出，但不能自动排除与真实政策同步发生、却在随机分配中被打散的遗漏冲击。</p>
+<details><summary>闭卷自测：安慰剂的1000个系数为什么不同？是因为每次删掉不同企业，还是政策变量变了？</summary><p>原文描述的是城市和年份随机分配造成政策变量变化，不是每次随机删除企业或重新抽企业样本。把“重复估计”与“bootstrap重抽样”区分开。</p></details>
+<p class="source">原文定位：变量定义PDF第4—5页；式（1）与表3的说明第6页；Table 3第7页；安慰剂段第13页、Fig. 5第16页。</p>
+</section>
+
+<h2 id="ddd-event-study">第十部分：从三重差分到动态事件研究</h2>
+<section class="entry"><h3 id="q45-ddd">Q45．僵尸企业机制里的三重差分，究竟比普通DID多比较了什么？</h3>
+<p><strong>补全背景：</strong>这里指Table 9 Panel A与式（3）：作者考察设庭能否增加城市清算案件，并进一步问，<strong>改革前僵尸企业更多的城市，清算反应是否更强</strong>。不是所有“有交互项”的回归都应自动叫三重差分。</p>
+<p><strong>先用高低两组理解三重差分（教学简化，不是作者实际分组）：</strong>第一重是改革前后；第二重是处理城市与对照城市；第三重是改革前僵尸企业暴露高与低。先分别算高暴露组和低暴露组的DID，再相减。</p>
+<table><thead><tr><th>假定组别</th><th>处理城市：前→后</th><th>对照城市：前→后</th><th>组内DID</th></tr></thead><tbody>
+<tr><td>高僵尸暴露</td><td>20→80，增加60</td><td>20→40，增加20</td><td>60−20＝40</td></tr>
+<tr><td>低僵尸暴露</td><td>10→35，增加25</td><td>10→20，增加10</td><td>25−10＝15</td></tr>
+</tbody></table>
+<div class="equation">DDD＝DID<sub>高暴露</sub>−DID<sub>低暴露</sub>＝40−15＝25</div>
+<p>这里25表示高暴露组的改革反应比低暴露组<strong>额外多25件</strong>；不是高暴露组原始清算数只增加25件。上表所有数值均为教学假设。</p>
+<p><strong>回到原文：</strong>作者没有在式（3）中简单将城市分为高低两组，而是使用连续变量Z꜀＝2012年僵尸企业<strong>数量，以千家计</strong>；尽管正文称intensity，它不是“僵尸企业占比”。原式展开为：</p>
+<div class="equation">Liquidations꜀ₜ＝γ₁Tribunal꜀ₜ<br>＋γ₂(Tribunal꜀ₜ×Z꜀)<br>＋β′X꜀ₜ＋α꜀＋λₜ＋ε꜀ₜ</div>
+<p>控制项为城市GRP及增长率、储蓄余额和贷款余额；另有城市与年份固定效应。Z꜀本身固定不变，其水平项会被城市固定效应吸收。</p>
+<div class="equation">Z＝z时的改革效应＝γ₁＋γ₂z<br>两城市Z相差Δz时，改革效应之差＝γ₂Δz</div>
+<p>Table 9 Panel A第（2）列γ₂＝282.612，表示在该模型中，改革前僵尸企业数量每多1000家，清算案件的改革反应额外大约282.6件。不是“每多一家就增加282.6件”，也不是“全部城市平均多清算282.6件”。</p>
+<p><strong>为什么作者叫三重差分？</strong>在单一改革时间的教学情境下，Tribunal可以写成Treat×Post，于是Tribunal×Z就对应Treat×Post×Z；本文又是错位设庭，所以政策状态应按各城市的真实时间构造，而不是一张全国统一的Post。</p>
+<p><strong>识别仍有条件：</strong>关键在于没有改革时，高低暴露之间的差异化走势不能又系统地只出现在处理城市。教科书完整DDD通常需要相应低阶交互项，例如高低组×年份；原文式（3）没有明确列出Z×年份项，不能默默补上后声称作者已控制。更精确地说，这是<strong>作者称为三重差分的连续暴露交互设定</strong>，不能认为多乘一个Z就自动解决了所有内生性。</p>
+<p><strong>与Panel C接起来：</strong>Panel C显示非僵尸企业的ROA、TFP与毛利率更高，直接支持“僵尸企业盈利能力和生产效率更低”；它提示资源占用可能有成本，但不单独识别僵尸企业对其他企业效率的因果拖累，更没有直接追踪贷款流向。</p>
+<details><summary>闭卷自测：为什么用2012年的僵尸企业数量，而不是每年更新？</summary><p>需要用改革前暴露刻画谁原本更可能受影响。改革本身可能减少僵尸企业，如果用改革后的数量重新分组，就可能让政策结果反过来定义暴露程度。</p></details>
+<p class="source">原文定位：第6.3.2节与式（3），PDF第11页；Table 9，第12页。高低组表格只是解释连续暴露DDD的教学例子。</p>
+</section>
+
+<section class="entry"><h3 id="q46-dynamic-ddd">Q46．作者怎样基于三重差分做图3的事件研究？图上的每个点到底是什么？</h3>
+<p><strong>把问题从“平均额外多多少”改成“每个相对年份额外多多少”。</strong>式（3）的γ₂把改革后的差异化反应概括为一个系数；事件研究把它拆成设庭当年、第1年、第2年、第3年等各期系数。</p>
+<p><strong>第一步：把不同城市对齐到各自的设庭年。</strong>设g꜀是城市首次设庭年份，k＝t−g꜀。比如甲2015年设庭、乙2017年设庭，那么两城各自设庭的下一年都属于k＝1，而不是必须处于同一个日历年。</p>
+<p><strong>第二步：为每个相对年份建立事件虚拟变量。</strong>Dᵏ꜀ₜ在该城市处于第k期时为1，否则为0；从未设庭的城市所有Dᵏ都为0。作者的窗口是−3至＋3，省略−1期作为基准。</p>
+<p><strong>第三步：每个事件虚拟变量都与改革前僵尸数量交互。</strong>按照图3注释的结构，统一用城市下标改写如下；原图注存在i与c混用，以下仅统一符号，不更改研究层级：</p>
+<div class="equation">L꜀ₜ＝∑<sub>k∈K</sub>aₖDᵏ꜀ₜ<br>＋∑<sub>k∈K</sub>bₖ(Dᵏ꜀ₜ×Z꜀)<br>＋控制变量＋城市固定效应＋年份固定效应＋误差<br>K＝{−3，−2，0，1，2，3}</div>
+<table><thead><tr><th>模型中的项</th><th>含义</th><th>图3画的是它吗？</th></tr></thead><tbody>
+<tr><td>aₖ</td><td>相对−1期，Z＝0基准下第k期的政策相关动态反应</td><td>不是</td></tr>
+<tr><td>bₖ</td><td>相对−1期，第k期的动态反应随Z增加一单位而增加多少</td><td><strong>是：原图注称βₖ</strong></td></tr>
+<tr><td>aₖ＋bₖz</td><td>暴露为z的城市在该期的完整模型效应</td><td>不是仅凭图3一个点就能得到</td></tr>
+</tbody></table>
+<p><strong>第四步：估计并画交互系数bₖ。</strong>若b₁＞0，意思是设庭后第1年，僵尸数量更多城市的清算反应更强；Z每相差1000家，反应差相差b₁件。它不是普通城市平均清算效应，也不是专利申请效应。</p>
+<p><strong>第五步：读基准线与区间。</strong>−1期被省略，图中的0是归一化基准，不是估计出“改革前一年完全没影响”。其他点为估计系数，竖线是<strong>90%置信区间</strong>；不跨0通常对应10%双侧显著，并非自动达到5%。标准误按城市聚类。</p>
+<figure class="paper-figure"><img src="data:image/png;base64,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" alt="原文图3：城市清算案件对改革前僵尸企业数量的差异化动态反应，事件时间为负三至正三期，纵轴为交互项系数，竖线为90%置信区间。"><figcaption>原文Fig. 3局部摘录，PDF第13页。图已嵌入网页，复制HTML到其他设备仍可查看。</figcaption></figure>
+<p><strong>需要纠正两种容易过头的说法：</strong></p>
+<ul><li><strong>“至少持续四年”：</strong>图上显示的是0、1、2、3四个年度点，即设庭当年到后三年；不是观察到了＋4年或更久。最稳妥说“差异化反应从设庭当年延续到后三年”。</li><li><strong>“改革前全部不显著”：</strong>不能不看图就照搬。放大原图，−2期的90%区间下界看起来略高于0；−3期跨0。缺少底层系数与精确p值，不宜声称所有改革前系数都不显著，更不能据此断言平行趋势已被证明。应核对联合检验或底层估计后再下更强结论。原文正文的概括与图面之间存在需要留意的张力。</li></ul>
+<p><strong>图3与图4不是同一个模型：</strong></p>
+<table><thead><tr><th>项目</th><th>图3</th><th>图4</th></tr></thead><tbody>
+<tr><td>结果变量</td><td>城市清算案件数</td><td>企业创新指标，按风险组展示</td></tr>
+<tr><td>主要画什么</td><td>事件期×改革前僵尸数量的交互系数</td><td>各风险样本中的动态改革效应</td></tr>
+<tr><td>原文注明的方法</td><td>常规OLS事件研究</td><td>Sun和Abraham（2021）方法</td></tr>
+<tr><td>聚类标准误</td><td>城市层面</td><td>城市—年份层面</td></tr>
+<tr><td>置信区间</td><td>90%</td><td>90%</td></tr>
+</tbody></table>
+<p>Sun–Abraham方法针对错位处理下传统双向固定效应事件研究可能混入其他时期、其他批次处理效应的问题。<strong>三重差分解决“多比较哪一维”，事件研究解决“效应怎样随时间变化”，Sun–Abraham解决“错位处理异质性下怎样估计”</strong>，这是不同层次的问题。图3具有第三维交互，不等于它自动采用了Sun–Abraham，也不等于传统错位事件研究的担忧自动消失。方法背景可查<a href="https://arxiv.org/abs/1804.05785">Sun与Abraham作者论文</a>。</p>
+<details><summary>闭卷自测：图3第＋2期的点为正，能否直接说“设庭两年后所有城市平均增加这么多清算案件”？</summary><p>不能。图上是与改革前僵尸暴露交互的系数，回答效应如何随暴露不同而不同；某城市的完整效应还涉及a₂及其Z值。若把它当平均效应，漏掉了第三维比较。</p></details>
+<p class="source">原文定位：式（3）和正文PDF第11页；Fig. 3及完整图注第13页；式（4）第13页、Fig. 4及图注第14页。图3改革前区间判断来自放大后的视觉核对，未伪造精确数值。</p>
+</section>
+
+<h2 id="using-on-other-devices">第十一部分：怎样在其他设备查看这份手册</h2>
+<section class="entry"><h3 id="q47-portability">Q47．这个答疑网站只能在我的电脑看吗？手机、平板和其他电脑怎样打开？</h3>
+<p><strong>内容不绑定这台电脑，但你现在的file:///E:/…地址只指向本机磁盘。</strong>把这一串地址发给别人，不会把文件一起传过去，也不会让对方远程访问你的E盘。</p>
+<table><thead><tr><th>方式</th><th>怎样查看</th><th>需要留意</th></tr></thead><tbody>
+<tr><td>复制HTML文件</td><td>通过聊天、网盘、U盘等传输“论文答疑手册_Cox模型与组会汇报.html”，下载到另一台电脑后用浏览器打开</td><td>正文、公式、内嵌图和搜索不依赖外部资源；这份副本以后不会自动同步本机修改</td></tr>
+<tr><td>手机／平板</td><td>下载实际HTML文件，尝试交给支持本地HTML的浏览器打开</td><td>聊天软件的文件预览、手机系统或浏览器可能限制脚本、本地文件打开或外链；不能保证预览器中的搜索与目录都能运行</td></tr>
+<tr><td>导出PDF</td><td>点击“打印／保存PDF”后将PDF传到其他设备</td><td>适合稳定阅读；网页搜索框与折叠互动不再保留，PDF阅读器可用自身的文字查找</td></tr>
+<tr><td>托管为HTTPS网址</td><td>上传到合适的静态网页托管服务，使用互联网网址访问</td><td>需要另外部署，并决定公开还是受限访问；本次没有上传或公开发布任何内容</td></tr>
+</tbody></table>
+<p><strong>哪些链接仍依赖附带文件？</strong>手册正文是独立的；但原文PDF和PPT不是HTML的一部分。文末已改为相对路径：若要在其他电脑同时打开它们，需保留“论文原文所在目录／读书会_Kong2026／成果”的相对结构，并一并复制所需文件。只复制HTML时，正文照常阅读，这两个本地附件链接则可能打不开。外部文献与分享对话链接需要联网。</p>
+<p><strong>最省事的选择：</strong>另一台电脑直接传HTML；手机若打不开或互动失效，传PDF更稳。若希望随时点一个网址、无需下载文件，再考虑正式部署。没有公网链接不代表内容只能在一台电脑使用。</p>
+</section>
+<h2 id="part-40">可直接练习的三段复述稿</h2>
+<section class="entry"><h3 id="part-41">复述稿A：用一分钟解释Cox模型</h3>
+<blockquote>
+<p>Cox比例风险回归模型研究事件什么时候发生，以及哪些特征与发生强度有关。以城市首次设庭为例，每当一座城市设庭，模型就把它和此时还没设庭、仍在观察的城市比较。已经设庭的城市退出后续风险集；观察结束仍未设庭的城市，则在此前的比较中提供信息。模型把发生强度写成共同的基准时间节奏乘以城市特征带来的倍数。同一时点比较时，基准节奏可以约掉，因此能估计哪些特征与更高或更低的设庭强度有关。本文用它检查城市经济和创新指标的变化能否预测设庭，未发现显著预测关系，但这不等于证明设庭完全随机。</p>
+</blockquote>
+</section><section class="entry"><h3 id="part-42">复述稿B：用半分钟解释负交互项</h3>
+<blockquote>
+<p>其他企业是参照组，Tribunal主效应表示参照组的改革效应。交互项表示寻补贴代理组比参照组多变或少变多少，因此该组自身的效应要把主效应与交互项相加。交互项显著为负说明它的改革效应低于其他企业，不能单凭这一项说它绝对下降。这种组间差异与信贷再配置解释一致。</p>
+</blockquote>
+</section><section class="entry"><h3 id="part-43">复述稿C：用半分钟区分两条机制</h3>
+<blockquote>
+<p>债权人激励效应强调资金供给扩张：执行更可信，债权人回收预期改善，就更愿意放贷。信贷再配置效应强调资金分配改善：原来被低效率企业占用的资源，可能转向更具创新能力的企业。两者分别回答“资金供给是否更多”和“资金是否分配得更有效”。论文用多组融资、创新和企业分组结果支持这些解释。</p>
+</blockquote>
+</section><h2 id="part-44">闭卷自测：先回答，再看参考要点</h2>
+<section class="entry"><h3 id="part-45">问题</h3>
+<ol>
+<li>甲2015年已设庭，为什么2017年的风险集中没有甲？甲以前的数据还用不用？</li>
+<li>丙到2020年未设庭，为什么不是“无用样本”，也不能记成“永远不设庭”？</li>
+<li>风险集的三座城市强度为2∶2∶1，甲的2/5是什么概率，不是什么概率？</li>
+<li>某特征的Cox系数为ln(2)，你怎样解释？至少说出一个不能推出的结论。</li>
+<li>城市特征随时间变化，比例风险是否意味着两座城市的实际风险比永远固定？</li>
+<li>Table 2不显著，为什么仍不能说设庭完全随机？</li>
+<li>主效应＋2、交互项−1时，另一组是增加还是下降？如果换成＋0.5和−1呢？</li>
+<li>为什么两个单独显著的系数相加后，不一定仍显著？</li>
+<li>研发门槛4%，上方0.5个百分点，应理解成靠近4.5%还是4.02%？</li>
+<li>如何区分“银行竞争越强，改革效果越强”与“改革提高了银行竞争”？</li>
+</ol>
+</section><section class="entry"><h3 id="part-46">参考要点</h3>
+<ol>
+<li>甲已不可能再次首次设庭；此前数据仍用于估计。</li>
+<li>丙在退出观察前属于风险集；我们只知道事件晚于观察结束。</li>
+<li>是条件于该时点发生一个事件后，事件发生者为甲的概率；不是甲全年设庭概率。</li>
+<li>特征高一个单位，其他条件相同时，风险率为2倍；不是全年概率翻倍或等待时间减半。</li>
+<li>不意味着。固定特征差异对应的倍数稳定；特征差异变化会改变实际风险比。</li>
+<li>只检验了特定可观测变化，且不显著不等于关系为零，也未排除所有遗漏因素。</li>
+<li>第一种另一组为＋1，增加得较少；第二种为−0.5，模型效应为负。</li>
+<li>和的标准误涉及协方差，须做相应联合检验。</li>
+<li>靠近4.5%；百分点是直接相减，不是相对乘法。</li>
+<li>前者是既有环境下的效果差异，后者把竞争本身作为改革结果，属于不同研究问题。</li>
+</ol>
+<p><strong>复习方法：</strong>先只看问题口头回答；卡住后再读相应Q编号。不要把“这句话看着熟悉”当成“我能解释清楚”。自测答案尚未收到，本手册不判断你已经掌握了哪些环节。</p>
+</section><h2 id="part-47">原文与核对入口</h2>
+<ul>
+<li>论文原文PDF（此在线版未附）：Table 2见第6页；Table 3见第7页；Table 6见第9页；Table 7见第11页；Table 8与Table 9见第12页；Fig. 3见第13页；脚注11与Fig. 4见第14页；Table 13见第15页；Table 15与Fig. 5见第16页。</li>
+<li><a href="%E7%BB%84%E4%BC%9A%E5%B1%95%E7%A4%BA_%E5%8E%9F%E6%96%87%E7%B2%BE%E4%BF%AE%E7%89%88_v6.pptx">精修版PPT v6</a>：用于对应汇报顺序；本次整理没有修改PPT。</li>
+<li><a href="https://rss.onlinelibrary.wiley.com/doi/10.1111/j.2517-6161.1972.tb00899.x">Cox（1972）原始论文</a>：模型来源与正式名称背景。</li>
+<li><a href="https://www.stat.ethz.ch/R-manual/R-devel/library/survival/html/coxph.html">R survival：coxph官方文档</a>：删失、时变协变量及并列事件处理的实现说明。</li>
+<li><a href="https://web.stanford.edu/~lutian/coursepdf/unitcox1.pdf">斯坦福大学Cox模型讲义</a>：标准模型与部分似然的进一步推导。</li>
+</ul>
+<p>分享对话入口：<a href="https://chatgpt.com/share/6ad65fa5-4478-83ec-9b80-94e4a83a1e5d">用户提供的分享链接</a>。本次无法读取其正文，未将其作为独立核验来源。</p>
+<footer>离线阅读版 · 无需联网 · 2026年10月22日更新</footer></main><script>
+const search=document.getElementById('search'),entries=[...document.querySelectorAll('.entry')],status=document.getElementById('status');
+function filter(){const q=search.value.trim().toLowerCase();let n=0;entries.forEach(e=>{const match=!q||e.textContent.toLowerCase().includes(q);e.hidden=!match;if(match)n++});status.textContent=q?'找到 '+n+' 个相关条目':'输入关键词筛选；清空后显示全部。';}
+search.addEventListener('input',filter);document.getElementById('clear').onclick=()=>{search.value='';filter();search.focus()};document.getElementById('print').onclick=()=>{search.value='';filter();window.print()};document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{search.value='';filter()}));
+let printClosedDetails=[];
+window.addEventListener('beforeprint',()=>{printClosedDetails=[...document.querySelectorAll('details:not([open])')];printClosedDetails.forEach(d=>d.open=true)});
+window.addEventListener('afterprint',()=>{printClosedDetails.forEach(d=>d.open=false);printClosedDetails=[]});
+</script></body></html>
